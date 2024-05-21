@@ -1,0 +1,245 @@
+/* Reset some default browser styles */
+
+body,
+h1,
+p,
+input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure body takes up the full viewport height */
+}
+
+header {
+  background: #fff;
+  color: #000;
+  padding: 1rem;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#darkmode {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.ascii-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  background: #000;
+  color: rgb(255, 0, 0);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  white-space: pre-wrap; /* This preserves whitespace and wraps the text */
+  font-family: "Courier New", Courier, monospace;
+}
+
+pre {
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%; /* Ensure container takes up full height */
+}
+
+#input::placeholder {
+  color: yellow;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#command-line {
+  border: 2px solid white;
+  background: #000;
+  color: #0f0;
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adjust spacing */
+}
+
+#output {
+  flex: 1; /* Allow output to grow and shrink */
+  max-height: 60%; /* Adjust to fit within the container */
+  overflow-x: auto; /* Enable vertical scrolling */
+  word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+}
+
+#input {
+  margin-top: 20px;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-top: 1px solid #0f0;
+  background: #000;
+  color: yellow;
+  outline: none;
+}
+
+footer {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dark body {
+  background: #7f7f7f;
+  color: #fff;
+}
+
+.dark header {
+  background: #7f7f7f;
+  color: #fff;
+}
+
+.dark #darkmode {
+  background: #fff;
+  color: #7f7f7f;
+}
+
+.dark #command-line {
+  background: #000;
+  color: #0f0;
+}
+
+.dark #input {
+  border-top: 1px solid #0f0;
+  background: #000;
+  color: yellow;
+}
+
+.dark footer {
+  background: #7f7f7f;
+  color: #fff;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, less than 600px) */
+@media (max-width: 599px) {
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  #command-line {
+    margin: 5%;
+    width: 90%;
+  }
+
+  #output {
+    max-height: 50%; /* Adjust for smaller screens */
+  }
+
+  #input {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  #darkmode {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium devices (tablets, 600px and up) */
+@media (min-width: 600px) and (max-width: 1199px) {
+  .container {
+    width: 90%;
+  }
+
+  #command-line {
+    margin: 10%;
+    width: 80%;
+  }
+
+  #output {
+    max-height: 55%; /* Adjust for medium screens */
+  }
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 80%;
+  }
+
+  #command-line {
+    margin: 15%;
+    width: 70%;
+  }
+
+  #output {
+    max-height: 60%; /* Adjust for larger screens */
+  }
+}
+
+/* Scrollbar Styling */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar:hover {
+  background-color: rgba(219, 219, 219, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7f7f7f;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
