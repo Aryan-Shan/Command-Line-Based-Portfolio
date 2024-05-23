@@ -72,21 +72,6 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
-/* #command-line {
-  background: #000;
-  color: #0f0;
-  width: 100%;
-  max-width: 800px;
-  padding: 1rem;
-  border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute; /* Change to absolute positioning */
-  top: 20%; /* Adjusted top position */
-
-} */
 
 #command-line-output {
   flex: 1;
