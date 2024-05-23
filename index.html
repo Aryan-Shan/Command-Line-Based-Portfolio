@@ -9,23 +9,22 @@
 <body>
     <header>
         <div class="container">
-            <h1>Aryan Shandilya</h1>
+            <h1 id="title"></h1>
         </div>
     </header>
     <main>
         <div class="container">
             <div id="command-line">
                 <div class="ascii-container"></div>
-                <div id="output">Type 'hint' to interact.
-                </div>
-                <input type="text" id="input" autofocus placeholder="Type a command...">
+                <div id="command-line-output">Type 'hint' to interact.</div>
+                <input type="text" id="command-line-input" autofocus placeholder="Type a command...">
             </div>
         </div>
     </main>
     <button id="darkmode" onclick="toggleTheme()"></button>
     <footer>
         <div class="container">
-            <p>&copy; 2024 Aryan Shandilya. All rights reserved.</p>
+            <p id="footer"></p>
         </div>
     </footer>
     <script src="script.js"></script>

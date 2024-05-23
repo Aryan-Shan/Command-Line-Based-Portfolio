@@ -1,5 +1,4 @@
 /* Reset some default browser styles */
-
 body,
 h1,
 p,
@@ -16,7 +15,7 @@ body {
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Ensure body takes up the full viewport height */
+  height: 100vh;
 }
 
 header {
@@ -25,10 +24,90 @@ header {
   padding: 1rem;
   position: relative;
 }
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1.5px solid #0f0;
+  color:#0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+button:hover {
+  border: 1.5px solid yellow;
+  color:yellow;
+}
 header h1 {
   margin: 0;
   font-size: 1.5rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#command-line {
+  background: #000;
+  color: #0f0;
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute; /* Change to absolute positioning */
+  top: 20%; /* Adjusted top position */
+
+}
+
+#command-line-output {
+  flex: 1;
+  max-height: 60%;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+#command-line-input {
+  margin-top: 20px;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-top: 1px solid #0f0;
+  background: #000;
+  color: yellow;
+  outline: none;
+}
+
+#command-line-input::placeholder {
+  color: yellow;
+  font-family: "Courier New", Courier, monospace;
+}
+
+footer {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 #darkmode {
@@ -56,69 +135,12 @@ header h1 {
   color: rgb(255, 0, 0);
   padding: 0.5rem;
   box-sizing: border-box;
-  white-space: pre-wrap; /* This preserves whitespace and wraps the text */
+  white-space: pre-wrap;
   font-family: "Courier New", Courier, monospace;
 }
 
 pre {
   margin: 0;
-}
-
-.container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: 100%; /* Ensure container takes up full height */
-}
-
-#input::placeholder {
-  color: yellow;
-  font-family: "Courier New", Courier, monospace;
-}
-
-#command-line {
-  border: 2px solid white;
-  background: #000;
-  color: #0f0;
-  width: 100%;
-  max-width: 800px;
-  padding: 1rem;
-  border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Adjust spacing */
-}
-
-#output {
-  flex: 1; /* Allow output to grow and shrink */
-  max-height: 60%; /* Adjust to fit within the container */
-  overflow-x: auto; /* Enable vertical scrolling */
-  word-wrap: break-word; /* Allow long words to break and wrap to the next line */
-}
-
-#input {
-  margin-top: 20px;
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  border-top: 1px solid #0f0;
-  background: #000;
-  color: yellow;
-  outline: none;
-}
-
-footer {
-  background: #fff;
-  color: #000;
-  text-align: center;
-  padding: 1rem 0;
 }
 
 .dark body {
@@ -141,7 +163,7 @@ footer {
   color: #0f0;
 }
 
-.dark #input {
+.dark #command-line-input {
   border-top: 1px solid #0f0;
   background: #000;
   color: yellow;
@@ -166,11 +188,11 @@ footer {
     width: 90%;
   }
 
-  #output {
-    max-height: 50%; /* Adjust for smaller screens */
+  #command-line-output {
+    max-height: 50%;
   }
 
-  #input {
+  #command-line-input {
     padding: 0.5rem;
     font-size: 1rem;
   }
@@ -197,8 +219,8 @@ footer {
     width: 80%;
   }
 
-  #output {
-    max-height: 55%; /* Adjust for medium screens */
+  #command-line-output {
+    max-height: 55%;
   }
 }
 
@@ -213,8 +235,8 @@ footer {
     width: 70%;
   }
 
-  #output {
-    max-height: 60%; /* Adjust for larger screens */
+  #command-line-output {
+    max-height: 60%;
   }
 }
 
