@@ -16,6 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 header {
@@ -47,12 +48,13 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1.5px solid #0f0;
-  color:#0f0;
+  color: #0f0;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -60,8 +62,20 @@ button {
 
 button:hover {
   border: 1.5px solid yellow;
-  color:yellow;
+  color: yellow;
 }
+
+/* Hint links */
+.hint-link {
+  color: #0f0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hint-link:hover {
+  color: yellow;
+}
+
 #command-line {
   background: #000;
   color: #0f0;
@@ -73,6 +87,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden; /* Prevent horizontal overflow within the terminal */
 }
 
 #command-line-output {
@@ -170,6 +185,30 @@ pre {
   color: #fff;
 }
 
+/* Project, About, and Contact Sections */
+.project, .about, .contact {
+  margin: 20px 0;
+  padding: 1rem;
+  background: transparent;
+  color: #0f0;
+  border-radius: 20px;
+  border: 2px solid #0f0;
+  width: 100%;
+  max-width: 94%; /* Ensures it fits within the terminal */
+  text-align: center;
+}
+
+.project img, .about img, .contact img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.project h2, .about h2, .contact h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 599px) {
   .container {
@@ -200,6 +239,10 @@ pre {
   header h1 {
     font-size: 1.2rem;
   }
+
+  .project img, .about img, .contact img {
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 1199px) {
@@ -215,6 +258,10 @@ pre {
   #command-line-output {
     max-height: 55%;
   }
+
+  .project img, .about img, .contact img {
+    max-width: 90%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -229,6 +276,10 @@ pre {
 
   #command-line-output {
     max-height: 60%;
+  }
+
+  .project img, .about img, .contact img {
+    max-width: 80%;
   }
 }
 

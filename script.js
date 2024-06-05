@@ -51,54 +51,66 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (command.toLowerCase()) {
             case 'show_resume':
                 output.innerHTML = `
-                    <p><strong>Resume:</strong></p>
-                    <p>Name: Aryan Shandilya</p>
-                    <p>Experience: Web Developer</p>
-                    <p>Skills: HTML, CSS, JavaScript</p>
+                    <div class="about">
+                        <h2>Resume</h2>
+                        <p>Name: Aryan Shandilya</p>
+                        <p>Experience: Web Developer</p>
+                        <p>Skills: HTML, CSS, JavaScript</p>
+                    </div>
                 `;
-                addNavigationButton('Resume', 'resume');
                 break;
             case 'show_projects':
                 output.innerHTML = `
-                    <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
-                    <p><strong>Projects:</strong></p>
-                    <p>1. Project One - ${loremIpsum.substring(0, 40)}</p>
-                    <p>2. Project Two - ${loremIpsum.substring(0, 40)}</p>
+                <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
+                    <div class="project">
+                        <h2>Project One</h2>
+                        <img src="images/1.jpg" alt="Project Image">
+                        <p>${loremIpsum.substring(0, 200)}</p>
+                    </div>
+                    <div class="project">
+                        <h2>Project Two</h2>
+                        <img src="images/2.jpg" alt="Project Image">
+                        <p>${loremIpsum.substring(0, 200)}</p>
+                    </div>
                 `;
-                addNavigationButton('Projects', 'projects');
                 break;
             case 'show_skills':
                 output.innerHTML = `
                     <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
-                    <p><strong>Skills:</strong></p>
-                    <p>HTML, CSS, JavaScript, React, Node.js</p>
+                    <div class="skills">
+                        <h2>Skills</h2>
+                        <p>HTML, CSS, JavaScript, React, Node.js</p>
+                    </div>
                 `;
-                addNavigationButton('Skills', 'skills');
                 break;
             case 'show_contact':
                 output.innerHTML = `
-                    <p><strong>Contact Information:</strong></p>
-                    <p>Email: aryan@example.com</p>
-                    <p>Phone: 123-456-7890</p>
+                    <div class="contact">
+                        <h2>Contact Information</h2>
+                        <img src="images/3.jpg" alt="Contact Image">
+                        <p>Email: aryan@example.com</p>
+                        <p>Phone: 123-456-7890</p>
+                    </div>
                 `;
-                addNavigationButton('Contact', 'contact');
                 break;
             case 'show_about':
                 output.innerHTML = `
                     <div class="ascii-container"><pre>${asciiArtAbout}</pre></div>
-                    <p><strong>About Me:</strong></p>
-                    <p>Hello! I am Aryan Shandilya, a passionate web developer with a knack for creating elegant and efficient web applications.</p>
+                    <div class="about">
+                        <h2>About Me</h2>
+                        <img src="images/3.jpg" alt="About Image">
+                        <p>Hello! I am Aryan Shandilya, a passionate web developer with a knack for creating elegant and efficient web applications.</p>
+                    </div>
                 `;
-                addNavigationButton('About', 'about');
                 break;
             case 'hint':
                 output.innerHTML = `
                     <p>Available commands:</p>
-                    <p>1. show_resume - Display resume</p>
-                    <p>2. show_projects - Display projects</p>
-                    <p>3. show_skills - Display skills</p>
-                    <p>4. show_contact - Display contact information</p>
-                    <p>5. show_about - Display about section</p>
+                    ${createHintLink('show_resume')}
+                    ${createHintLink('show_projects')}
+                    ${createHintLink('show_skills')}
+                    ${createHintLink('show_contact')}
+                    ${createHintLink('show_about')}
                 `;
                 break;
             default:
@@ -106,15 +118,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     }
-  
-    function addNavigationButton(label, section) {
-        const button = document.createElement('button');
-        button.textContent = `Visit ${label}`;
-        button.onclick = function () {
-            scrollToSection(section);
-        };
-        output.appendChild(button);
+
+    function createHintLink(command) {
+        return `<p><a href="#" class="hint-link" data-command="${command}">${command}</a></p>`;
     }
+
+    output.addEventListener('click', function (e) {
+        if (e.target.classList.contains('hint-link')) {
+            e.preventDefault();
+            const command = e.target.getAttribute('data-command');
+            processCommand(command);
+        }
+    });
 
     // Dark mode toggle
     if (
