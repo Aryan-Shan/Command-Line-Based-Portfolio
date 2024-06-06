@@ -75,7 +75,7 @@ body, h1, p, input, button {
   }
   
   #command-line {
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 3rem;
     background: #000;
     color: #0f0;
@@ -89,6 +89,7 @@ body, h1, p, input, button {
     overflow-y: auto; /* Allow vertical scrolling */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     max-height: auto; /* Adjust as needed for visibility */
+    text-align: center;
   }
   
   #command-line-output {
@@ -193,13 +194,13 @@ body, h1, p, input, button {
   }
   
   .project, .about, .contact {
-    margin: 20px 0;
+    margin-top: 1rem;
     padding: 1rem;
     background: rgb(77, 75, 75);
     color: white;
     border-radius: 10px;
-    border: 1px solid white;
-    width: 90%;
+    border: 2px solid white;
+    width: 88%;
     max-width: 100%;
     text-align: center;
   }
@@ -249,7 +250,7 @@ body, h1, p, input, button {
     padding: 0.5rem 1rem;
     background-color: black;
     border: 1.5px solid white;
-    width: 20%;
+    width: 30%;
     color: #0f0;
     border-radius: 20px;
     cursor: pointer;
