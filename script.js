@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="images/1.jpg" alt="Project Image">
                         <p>${loremIpsum.substring(0, 200)}</p>
                         <div class="project-buttons">
-                            <a href="https://example.com/demo1" target="_blank">Project Demo</a>
+                            <a href="https://example.com/demo1" target="_blank">Demo</a>
                             <a href="https://github.com/aryan/project1" target="_blank">GitHub</a>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="images/2.jpg" alt="Project Image">
                         <p>${loremIpsum.substring(0, 200)}</p>
                         <div class="project-buttons">
-                            <a href="https://example.com/demo2" target="_blank">Project Demo</a>
+                            <a href="https://example.com/demo2" target="_blank">Demo</a>
                             <a href="https://github.com/aryan/project2" target="_blank">GitHub</a>
                         </div>
                     </div>

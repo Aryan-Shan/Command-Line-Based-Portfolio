@@ -1,0 +1,14 @@
+/* large.css */
+body {
+    background: #d0d0d0;
+  }
+  
+  .container {
+    width: 80%;
+  }
+  
+  #command-line {
+    width: 70%;
+    margin: 0 auto;
+  }
+  

@@ -143,7 +143,7 @@ footer {
   padding: 0.5rem;
   white-space: pre-wrap;
   font-family: "Courier New", Courier, monospace;
-  animation: fadeIn 2s;
+  animation: fadeIn 0.5s;
 }
 
 pre {
@@ -190,9 +190,9 @@ pre {
   margin: 20px 0;
   padding: 1rem;
   background: rgb(77, 75, 75);
-  color: #0f0;
+  color: white;
   border-radius: 10px;
-  border: 1px solid #0f0;
+  border: 1px solid white;
   width: 95%;
   max-width: 100%;
   text-align: center;
@@ -208,49 +208,6 @@ pre {
   margin-bottom: 10px;
   font-size: 1.5rem;
   color: yellow;
-}
-
-@media (max-width: 599px) {
-  .container {
-    padding: 1rem;
-  }
-
-  #command-line {
-    width: 95%;
-    margin: 0;
-  }
-
-  #darkmode {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-  }
-
-  header h1 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (min-width: 600px) and (max-width: 1199px) {
-  .container {
-    width: 90%;
-  }
-
-  #command-line {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 80%;
-  }
-
-  #command-line {
-    width: 70%;
-    margin: 0 auto;
-  }
 }
 
 .btCls {
@@ -284,10 +241,11 @@ pre {
 
 .project-buttons a {
   padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 1.5px solid #0f0;
+  background-color: black;
+  border: 1.5px solid white;
+  width: 10%;
   color: #0f0;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;

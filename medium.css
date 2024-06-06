@@ -1,0 +1,14 @@
+/* medium.css */
+body {
+    background: #e0e0e0;
+  }
+  
+  .container {
+    width: 90%;
+  }
+  
+  #command-line {
+    width: 90%;
+    margin: 0 auto;
+  }
+  

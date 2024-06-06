@@ -1,0 +1,287 @@
+/* Reset some default browser styles */
+body, h1, p, input, button {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+  }
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2rem;
+  }
+  
+  header {
+    background: #fff;
+    color: #000;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1.5px solid #0f0;
+    color: #0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    border: 1.5px solid yellow;
+    color: yellow;
+  }
+  
+  .hint-link {
+    color: #0f0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .hint-link:hover {
+    color: yellow;
+  }
+  
+  #command-line {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    background: #000;
+    color: #0f0;
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-height: auto; /* Adjust as needed for visibility */
+  }
+  
+  #command-line-output {
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+  }
+  
+  #command-line-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid #0f0;
+    background: #000;
+    color: yellow;
+    outline: none;
+  }
+  
+  #command-line-input::placeholder {
+    color: yellow;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  footer {
+    /* border: 1px solid red; */
+    background: #fff;
+    color: #000;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+  }
+  
+  #darkmode {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  
+  .ascii-container {
+    text-align: center;
+    width: 100%;
+    overflow: auto;
+    background: #000;
+    color: rgb(255, 0, 0);
+    padding:0;
+    white-space: pre-wrap;
+    font-family: "Courier New", Courier, monospace;
+    animation: fadeIn 0.5s;
+  }
+  
+  pre {
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .dark body {
+    background: #7f7f7f;
+    color: #fff;
+  }
+  
+  .dark header {
+    background: #7f7f7f;
+    color: #fff;
+  }
+  
+  .dark #darkmode {
+    background: #fff;
+    color: #7f7f7f;
+  }
+  
+  .dark #command-line {
+    background: #000;
+    color: #0f0;
+  }
+  
+  .dark #command-line-input {
+    border-top: 1px solid #0f0;
+    background: #000;
+    color: yellow;
+  }
+  
+  .dark footer {
+    background: #7f7f7f;
+    color: #fff;
+  }
+  
+  .project, .about, .contact {
+    margin: 20px 0;
+    padding: 1rem;
+    background: rgb(77, 75, 75);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 90%;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .project img, .about img, .contact img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .project h2, .about h2, .contact h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: yellow;
+  }
+  
+  .btCls {
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+  }
+  
+  .back-button {
+    margin-top: 0;
+    margin-bottom: 9px;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1.5px dotted #f00;
+    color: #f00;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  .back-button:hover {
+    border: 1.5px dotted yellow;
+    color: yellow;
+  }
+  .project-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  
+  .project-buttons a {
+    padding: 0.5rem 1rem;
+    background-color: black;
+    border: 1.5px solid white;
+    width: 20%;
+    color: #0f0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .project-buttons a:hover {
+    border: 1.5px solid yellow;
+    color: yellow;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  ::-webkit-scrollbar:hover {
+    background-color: rgba(219, 219, 219, 0.3);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #7f7f7f;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #ffffff;
+  }
+  
