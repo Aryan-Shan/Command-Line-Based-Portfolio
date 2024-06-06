@@ -194,7 +194,7 @@ body, h1, p, input, button {
   }
   
   .project, .about, .contact {
-    margin-top: 1rem;
+    margin: 0rem;
     padding: 1rem;
     background: rgb(77, 75, 75);
     color: white;
