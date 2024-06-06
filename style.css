@@ -1,8 +1,5 @@
 /* Reset some default browser styles */
-body,
-h1,
-p,
-input {
+body, h1, p, input, button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 header {
@@ -40,12 +37,12 @@ main {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -65,7 +62,6 @@ button:hover {
   color: yellow;
 }
 
-/* Hint links */
 .hint-link {
   color: #0f0;
   text-decoration: none;
@@ -82,23 +78,24 @@ button:hover {
   width: 100%;
   max-width: 800px;
   padding: 1rem;
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow-x: hidden; /* Prevent horizontal overflow within the terminal */
+  overflow-y: auto; /* Allow vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  max-height: auto; /* Adjust as needed for visibility */
 }
 
 #command-line-output {
   flex: 1;
-  max-height: 60%;
-  overflow-y: auto;
+  overflow-y: auto; /* Allow vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   word-wrap: break-word;
+  margin-bottom: 1rem;
 }
 
 #command-line-input {
-  margin-top: 20px;
   width: 100%;
   padding: 0.5rem;
   border: none;
@@ -140,18 +137,22 @@ footer {
 
 .ascii-container {
   width: 100%;
-  max-width: 100%;
   overflow: auto;
   background: #000;
   color: rgb(255, 0, 0);
   padding: 0.5rem;
-  box-sizing: border-box;
   white-space: pre-wrap;
   font-family: "Courier New", Courier, monospace;
+  animation: fadeIn 2s;
 }
 
 pre {
   margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .dark body {
@@ -185,16 +186,15 @@ pre {
   color: #fff;
 }
 
-/* Project, About, and Contact Sections */
 .project, .about, .contact {
   margin: 20px 0;
   padding: 1rem;
-  background: transparent;
+  background: rgb(77, 75, 75);
   color: #0f0;
-  border-radius: 20px;
-  border: 2px solid #0f0;
-  width: 100%;
-  max-width: 94%; /* Ensures it fits within the terminal */
+  border-radius: 10px;
+  border: 1px solid #0f0;
+  width: 95%;
+  max-width: 100%;
   text-align: center;
 }
 
@@ -207,27 +207,17 @@ pre {
 .project h2, .about h2, .contact h2 {
   margin-bottom: 10px;
   font-size: 1.5rem;
+  color: yellow;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 599px) {
   .container {
-    width: 100%;
     padding: 1rem;
   }
 
   #command-line {
-    margin: 5%;
-    width: 90%;
-  }
-
-  #command-line-output {
-    max-height: 50%;
-  }
-
-  #command-line-input {
-    padding: 0.5rem;
-    font-size: 1rem;
+    width: 95%;
+    margin: 0;
   }
 
   #darkmode {
@@ -239,10 +229,6 @@ pre {
   header h1 {
     font-size: 1.2rem;
   }
-
-  .project img, .about img, .contact img {
-    max-width: 100%;
-  }
 }
 
 @media (min-width: 600px) and (max-width: 1199px) {
@@ -251,16 +237,8 @@ pre {
   }
 
   #command-line {
-    margin: 10%;
-    width: 80%;
-  }
-
-  #command-line-output {
-    max-height: 55%;
-  }
-
-  .project img, .about img, .contact img {
-    max-width: 90%;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -270,20 +248,55 @@ pre {
   }
 
   #command-line {
-    margin: 15%;
     width: 70%;
-  }
-
-  #command-line-output {
-    max-height: 60%;
-  }
-
-  .project img, .about img, .contact img {
-    max-width: 80%;
+    margin: 0 auto;
   }
 }
 
-/* Scrollbar Styling */
+.btCls {
+  text-align: center;
+  margin-top: 8px;
+  display: none;
+}
+
+.back-button {
+  margin-top: 0;
+  margin-bottom: 9px;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1.5px dotted #f00;
+  color: #f00;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.back-button:hover {
+  border: 1.5px dotted yellow;
+  color: yellow;
+}
+.project-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.project-buttons a {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1.5px solid #0f0;
+  color: #0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.project-buttons a:hover {
+  border: 1.5px solid yellow;
+  color: yellow;
+}
 ::-webkit-scrollbar {
   width: 4px;
   height: 15px;

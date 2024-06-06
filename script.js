@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const output = document.getElementById('command-line-output');
     const title = document.getElementById('title');
     const footer = document.getElementById('footer');
+    const backButton = document.querySelector('.btCls');
 
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
@@ -39,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 output.innerHTML = '';
                 processCommand(command);
-            }, 500); // Simulate loading time
+                // Show the CMD_dir button only when a command is processed
+                backButton.style.display = 'block';
+            }, 500);
         }
     });
 
@@ -61,16 +64,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             case 'show_projects':
                 output.innerHTML = `
-                <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
+                    <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
                     <div class="project">
                         <h2>Project One</h2>
                         <img src="images/1.jpg" alt="Project Image">
                         <p>${loremIpsum.substring(0, 200)}</p>
+                        <div class="project-buttons">
+                            <a href="https://example.com/demo1" target="_blank">Project Demo</a>
+                            <a href="https://github.com/aryan/project1" target="_blank">GitHub</a>
+                        </div>
                     </div>
                     <div class="project">
                         <h2>Project Two</h2>
                         <img src="images/2.jpg" alt="Project Image">
                         <p>${loremIpsum.substring(0, 200)}</p>
+                        <div class="project-buttons">
+                            <a href="https://example.com/demo2" target="_blank">Project Demo</a>
+                            <a href="https://github.com/aryan/project2" target="_blank">GitHub</a>
+                        </div>
                     </div>
                 `;
                 break;
@@ -104,19 +115,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 break;
             case 'hint':
-                output.innerHTML = `
-                    <p>Available commands:</p>
-                    ${createHintLink('show_resume')}
-                    ${createHintLink('show_projects')}
-                    ${createHintLink('show_skills')}
-                    ${createHintLink('show_contact')}
-                    ${createHintLink('show_about')}
-                `;
+                showHint();
+                // Hide the CMD_dir button when showing the hint section
+                backButton.style.display = 'none';
                 break;
             default:
                 output.innerHTML = `<p>Unknown command: ${command}. Type 'hint' for a list of commands.</p>`;
                 break;
         }
+    }
+
+    function showHint() {
+        output.innerHTML = `
+        <p style="color: rgb(255, 255, 255); font-weight: bold;">Available commands:</p>
+            ${createHintLink('show_resume')}
+            ${createHintLink('show_projects')}
+            ${createHintLink('show_skills')}
+            ${createHintLink('show_contact')}
+            ${createHintLink('show_about')}
+        `;
     }
 
     function createHintLink(command) {
@@ -131,7 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Dark mode toggle
+    document.querySelector('.back-button').addEventListener('click', showHint);
+
     if (
         localStorage.isDark === "true" ||
         (localStorage.isDark === undefined &&
@@ -146,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.isDark = document.documentElement.classList.contains('dark');
     });
 
-    // Typing effect for title and footer
     function typeEffect(element, text, delay) {
         let i = 0;
         function typing() {
