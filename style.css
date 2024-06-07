@@ -136,14 +136,21 @@ footer {
 }
 
 .ascii-container {
+  text-align: center;
   width: 100%;
   overflow: auto;
   background: #000;
-  color: rgb(255, 0, 0);
-  padding: 0.5rem;
+  /* color: rgb(255, 0, 0); */
+  padding:0;
   white-space: pre-wrap;
   font-family: "Courier New", Courier, monospace;
   animation: fadeIn 0.5s;
+}
+.ascii-container,
+.ascii-container > * {
+background: linear-gradient(to right, red, rgb(128, 255, 0));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 pre {
@@ -220,7 +227,7 @@ pre {
 
 .back-button {
   margin-top: 0;
-  margin-bottom: 9px;
+  margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1.5px dotted #f00;
