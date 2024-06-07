@@ -169,33 +169,34 @@ body, h1, p, input, button {
   }
   
   .dark body {
-    background: #7f7f7f;
+    background: #000000;
     color: #fff;
   }
   
   .dark header {
-    background: #7f7f7f;
+    background: #000000;
     color: #fff;
   }
   
   .dark #darkmode {
     background: #fff;
-    color: #7f7f7f;
+    color: #000000;
   }
   
   .dark #command-line {
-    background: #000;
+    background: #272727;
     color: #0f0;
+    /* border: 1px solid white; */
   }
   
   .dark #command-line-input {
     border-top: 1px solid #0f0;
-    background: #000;
+    background: #272727;
     color: yellow;
   }
   
   .dark footer {
-    background: #7f7f7f;
+    background: #000000;
     color: #fff;
   }
   
@@ -204,10 +205,9 @@ body, h1, p, input, button {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
-    background: rgb(77, 75, 75);
+    background: transparent;
     color: white;
     border-radius: 10px;
-    border: 2px solid white;
     width: 88%;
     max-width: 100%;
     text-align: center;
