@@ -207,7 +207,7 @@ body, h1, p, input, button {
     margin-bottom: 1.5rem;
     padding: 0.5rem 1rem;
     background-color: transparent;
-    border: 1.5px dotted #f00;
+    border: 1.5px solid #f00;
     color: #f00;
     border-radius: 12px;
     cursor: pointer;
@@ -216,7 +216,7 @@ body, h1, p, input, button {
   }
   
   .back-button:hover {
-    border: 1.5px dotted yellow;
+    border: 1.5px solid yellow;
     color: yellow;
   }
   .project-buttons {
