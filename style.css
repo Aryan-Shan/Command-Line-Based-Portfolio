@@ -202,6 +202,7 @@ pre {
 .back-button {
   margin-top: 0;
   margin-bottom: 1.5rem;
+  border-radius: 12px;
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1.5px solid #f00;

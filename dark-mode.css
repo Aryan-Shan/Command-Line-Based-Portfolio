@@ -18,7 +18,6 @@ body.dark {
   body.dark #command-line {
     background: #ffffff;
     color: rgb(255, 0, 0);
-    /* border: 1px solid white; */
   }
   
   body.dark #command-line-input {
@@ -63,16 +62,10 @@ body.dark #BB:hover{
 body.dark .project, 
 body.dark .about, 
 body.dark .contact {
-  margin: 0rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
+
   background: transparent;
   color: rgb(29, 29, 29);
-  border-radius: 10px;
-  width: 96%;
-  max-width: 100%;
-  text-align: center;
+
 }
 
 
