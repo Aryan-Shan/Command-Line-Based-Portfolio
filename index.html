@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="small.css" media="only screen and (max-width: 599px)">
     <link rel="stylesheet" href="medium.css" media="only screen and (min-width: 600px) and (max-width: 1199px)">
     <link rel="stylesheet" href="large.css" media="only screen and (min-width: 1200px)">
+    <link rel="stylesheet" href="dark-mode.css">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
             <div id="command-line">
                 <div class="ascii-container"></div>
                 <div id="command-line-output">Type 'hint' to interact.</div>
-                <div class="btCls"><button class="back-button" onclick="showHint()">CMD_dir</button></div>
+                <div class="btCls"><button id="BB" class="back-button" onclick="showHint()">CMD_dir</button></div>
                 <input type="text" id="command-line-input" autofocus placeholder="Type a command...">
             </div>
         </div>

@@ -1,0 +1,105 @@
+/* dark-mode.css */
+
+body.dark {
+    background: #000000;
+    color: #fff;
+  }
+  
+  body.dark header {
+    background: #000000;
+    color: #fff;
+  }
+  
+  body.dark #darkmode {
+    background: #fff;
+    color: #000000;
+  }
+  
+  body.dark #command-line {
+    background: #ffffff;
+    color: rgb(255, 0, 0);
+    /* border: 1px solid white; */
+  }
+  
+  body.dark #command-line-input {
+    border-top: 1px solid rgb(9, 9, 9);
+    background: #ffffff;
+    color: #0004ff;
+  }
+  
+  body.dark #links {
+    color: #ef00fc;
+  }
+  
+  body.dark #links:hover {
+    color: rgb(0, 0, 0);
+  }
+  
+  body.dark #titleCmd {
+    color: rgb(111, 0, 255);
+  }
+  
+  body.dark #command-line-input::placeholder {
+    color: #0004ff;
+  }
+  
+  body.dark footer {
+    background: #000000;
+    color: #fff;
+  }
+  
+
+body.dark #BB{
+    color: #20bb18;
+    border: 1.4px solid #20bb18;
+}
+
+body.dark #BB:hover{
+    color: #ff0000;
+    border: 1.4px solid rgb(255, 0, 0);
+}
+
+
+body.dark .project, 
+body.dark .about, 
+body.dark .contact {
+  margin: 0rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: transparent;
+  color: rgb(29, 29, 29);
+  border-radius: 10px;
+  width: 96%;
+  max-width: 100%;
+  text-align: center;
+}
+
+
+body.dark .project h2, 
+body.dark .about h2, 
+body.dark .contact h2 {
+  color: orange
+}
+
+body.dark .ascii-container {
+    background: #000;
+  }
+ body.dark .ascii-container,
+  body.dark .ascii-container > * {
+  background: linear-gradient(to right, rgb(129, 4, 255), rgb(255, 1, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+
+
+  body.dark .project-buttons a {
+    background-color: transparent;
+    border: 1.5px solid rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
+  }
+  
+  body.dark .project-buttons a:hover {
+    border: 1.5px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+  }

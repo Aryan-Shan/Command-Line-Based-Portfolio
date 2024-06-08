@@ -167,39 +167,10 @@ body, h1, p, input, button {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  
-  .dark body {
-    background: #000000;
-    color: #fff;
+  #titleCmd{
+    color: rgb(255, 255, 255); 
+    font-weight: bold;
   }
-  
-  .dark header {
-    background: #000000;
-    color: #fff;
-  }
-  
-  .dark #darkmode {
-    background: #fff;
-    color: #000000;
-  }
-  
-  .dark #command-line {
-    background: #272727;
-    color: #0f0;
-    /* border: 1px solid white; */
-  }
-  
-  .dark #command-line-input {
-    border-top: 1px solid #0f0;
-    background: #272727;
-    color: yellow;
-  }
-  
-  .dark footer {
-    background: #000000;
-    color: #fff;
-  }
-  
   .project, .about, .contact {
     margin: 0rem;
     margin-top: 1rem;

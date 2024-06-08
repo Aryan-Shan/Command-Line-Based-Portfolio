@@ -148,7 +148,7 @@ footer {
 }
 .ascii-container,
 .ascii-container > * {
-background: linear-gradient(to right, red, rgb(128, 255, 0));
+background: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 255, 229));
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
@@ -161,48 +161,20 @@ pre {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-.dark body {
-    background: #000000;
-    color: #fff;
-  }
-  
-  .dark header {
-    background: #000000;
-    color: #fff;
-  }
-  
-  .dark #darkmode {
-    background: #fff;
-    color: #000000;
-  }
-  
-  .dark #command-line {
-    background: #272727;
-    color: #0f0;
-    /* border: 1px solid white; */
-  }
-  
-  .dark #command-line-input {
-    border-top: 1px solid #0f0;
-    background: #272727;
-    color: yellow;
-  }
-  
-  .dark footer {
-    background: #000000;
-    color: #fff;
-  }
+#titleCmd{
+  color: rgb(255, 255, 255); 
+  font-weight: bold;
+}
   
   .project, .about, .contact {
     margin: 0rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
-    background: #272727;
+    background: transparent;
     color: white;
     border-radius: 10px;
-    width: 88%;
+    width: 96%;
     max-width: 100%;
     text-align: center;
   }
@@ -232,16 +204,15 @@ pre {
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
-  border: 1.5px dotted #f00;
+  border: 1.5px solid #f00;
   color: #f00;
-  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: "Courier New", Courier, monospace;
 }
 
 .back-button:hover {
-  border: 1.5px dotted yellow;
+  border: 1.5px solid yellow;
   color: yellow;
 }
 .project-buttons {

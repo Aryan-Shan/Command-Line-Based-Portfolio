@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showHint() {
         output.innerHTML = `
-        <p style="color: rgb(255, 255, 255); font-weight: bold;">Available commands:</p>
+        <p id="titleCmd">Available commands:</p>
             ${createHintLink('show_resume')}
             ${createHintLink('show_projects')}
             ${createHintLink('show_skills')}
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createHintLink(command) {
-        return `<p><a href="#" class="hint-link" data-command="${command}">${command}</a></p>`;
+        return `<p><a href="#" id="links" class="hint-link" data-command="${command}">${command}</a></p>`;
     }
 
     output.addEventListener('click', function (e) {
@@ -159,9 +159,19 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.isDark = true;
     }
 
+
+    if (
+        localStorage.isDark === "true" ||
+        (localStorage.isDark === undefined &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+        document.body.classList.add("dark");
+        localStorage.isDark = true;
+    }
+
     document.getElementById('darkmode').addEventListener('click', function () {
-        document.documentElement.classList.toggle('dark');
-        localStorage.isDark = document.documentElement.classList.contains('dark');
+        document.body.classList.toggle('dark');
+        localStorage.isDark = document.body.classList.contains('dark');
     });
 
     function typeEffect(element, text, delay) {
@@ -177,5 +187,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     typeEffect(title, "Aryan Shandilya", 100);
-    typeEffect(footer, "© 2024 Aryan Shandilya. All rights reserved.", 50);
+    typeEffect(footer, "© 2024 | Made with ❤️ by a.s", 50);
 });
