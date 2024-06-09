@@ -77,8 +77,8 @@ button:hover {
   color: #0f0;
   width: 100%;
   max-width: 800px;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 1.5rem;
+  border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -260,4 +260,71 @@ pre {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #ffffff;
+}
+
+
+
+
+/* Contact form styles */
+.contact-form {
+  background-color: transparent;
+  padding: 20px;
+  border: 1.5px solid #0f0;
+  border-radius: 20px;
+  width: 300px;
+  /* box-shadow: 0 0 10px white; */
+  margin: 20px auto;
+  box-sizing: border-box; /* Ensure padding is included in width and height calculations */
+}
+.contact-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: yellow;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: red;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #0f0;
+  border-radius: 15px;
+  background-color: transparent;
+  resize:none;
+  max-width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+.contact-form textarea {
+  padding: 10px;
+  margin-top: 5px; /* Add margin-top to prevent touching the border */
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: transparent;
+  border: 1.5px solid #0f0;
+  color: yellow;
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  border: 1.5px solid yellow;
 }

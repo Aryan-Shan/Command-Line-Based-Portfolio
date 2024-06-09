@@ -96,13 +96,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             case 'show_contact':
                 output.innerHTML = `
-                    <div class="contact">
-                        <h2>Contact Information</h2>
-                        <img src="images/3.jpg" alt="Contact Image">
-                        <p>Email: aryan@example.com</p>
-                        <p>Phone: 123-456-7890</p>
+                    <div class="contact-form">
+                        <h1>Contact Me</h1>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message:</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit">Send</button>
+                        </form>
                     </div>
                 `;
+                document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    sendEmail();
+                });
                 break;
             case 'show_about':
                 output.innerHTML = `
@@ -188,4 +204,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     typeEffect(title, "Aryan Shandilya", 100);
     typeEffect(footer, "© 2024 | Made with ❤️ by a.s", 50);
+
+    // EmailJS integration
+    (function(){
+        emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
+    })();
+
+    function sendEmail() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            message: message
+        };
+
+        emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Your message has been sent!');
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Failed to send the message. Please try again.');
+            });
+    }
 });

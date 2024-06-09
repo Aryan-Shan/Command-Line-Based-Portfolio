@@ -96,3 +96,35 @@ body.dark .ascii-container {
     border: 1.5px solid rgb(255, 0, 0);
     color: rgb(255, 0, 0);
   }
+
+
+  /* Contact form styles dark mode */
+body.dark .contact-form {
+  background-color: transparent;
+  border: 1.5px solid rgb(255, 0, 0);
+  /* box-shadow: 0 0 10px white; */
+}
+body.dark .contact-form h1 {
+  color: orange;
+}
+
+body.dark .contact-form label {
+  color: blue;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  color: rgb(0, 0, 0);
+  border: 1.5px solid rgb(193, 193, 0);
+  background-color: transparent;
+}
+
+body.dark .contact-form button {
+  background-color: transparent;
+  border: 1.5px solid rgb(0, 0, 0);
+  color: blue;
+}
+
+body.dark .contact-form button:hover {
+  border: 1.5px solid rgb(255, 0, 0);
+}
