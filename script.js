@@ -62,29 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 break;
-            case 'show_projects':
-                output.innerHTML = `
-                    <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
-                    <div class="project">
-                        <h2>Project One</h2>
-                        <img src="images/1.jpg" alt="Project Image">
-                        <p>${loremIpsum.substring(0, 200)}</p>
-                        <div class="project-buttons">
-                            <a href="https://example.com/demo1" target="_blank">Demo</a>
-                            <a href="https://github.com/aryan/project1" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project">
-                        <h2>Project Two</h2>
-                        <img src="images/2.jpg" alt="Project Image">
-                        <p>${loremIpsum.substring(0, 200)}</p>
-                        <div class="project-buttons">
-                            <a href="https://example.com/demo2" target="_blank">Demo</a>
-                            <a href="https://github.com/aryan/project2" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                `;
-                break;
+                case 'show_projects':
+                    loadProjects();
+                    break;
             case 'show_skills':
                 output.innerHTML = `
                     <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
@@ -140,7 +120,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     }
-
+    function loadProjects() {
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(projects => {
+                output.innerHTML = `
+                    <div class="ascii-container"><pre>${asciiArtProjects}</pre></div>
+                `;
+                projects.forEach(project => {
+                    output.innerHTML += `
+                        <div class="project">
+                            <h2>${project.title}</h2>
+                            <img src="${project.image}" alt="Project Image">
+                            <p>${project.description}</p>
+                            <div class="project-buttons">
+                                <a href="${project.demoLink}" target="_blank">Demo</a>
+                                <a href="${project.githubLink}" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                output.innerHTML = '<p>Error loading projects.</p>';
+                console.error('Error:', error);
+            });
+    }
     function showHint() {
         output.innerHTML = `
         <p id="titleCmd">Available commands:</p>

@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Project One",
+        "image": "images/1.jpg",
+        "description": "Project One description...",
+        "demoLink": "https://example.com/demo1",
+        "githubLink": "https://github.com/aryan/project1"
+    },
+    {
+        "title": "Project Two",
+        "image": "images/2.jpg",
+        "description": "Project Two description...",
+        "demoLink": "https://example.com/demo2",
+        "githubLink": "https://github.com/aryan/project2"
+    }
+]
