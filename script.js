@@ -24,7 +24,28 @@ const asciiArtSkills = `
 `;
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
-
+const skillsData = {
+    labels: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'], // Initial skill labels
+    datasets: [{
+        label: 'Skill Level',
+        data: [90, 80, 85, 70, 75], // Initial skill levels
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+    }]
+};
 document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('command-line-input');
     const output = document.getElementById('command-line-output');
@@ -62,49 +83,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 break;
-                case 'show_projects':
-                    loadProjects();
-                    break;
-            case 'show_skills':
-                output.innerHTML = `
-                    <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
-                    <div class="skills">
-                        <h2>Skills</h2>
-                        <p>HTML, CSS, JavaScript, React, Node.js</p>
-                    </div>
-                `;
+            case 'show_projects':
+                loadProjects();
                 break;
+                case 'show_skills':
+                    output.innerHTML = `
+                        <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
+                        <div class="skills">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    `;
+                    renderSkillsChart();
+                    break;
             case 'show_contact':
                 output.innerHTML = `
-                    <div class="contact-form">
-                        <h1>Contact Me</h1>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message:</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit">Send</button>
-                        </form>
+                    <div class="contact-details">
+                        <h2>Contact Me</h2>
+                        <p>Name: Aryan Shandilya</p>
+                        <p>Phone: 9155636600</p>
+                        <p>Email: aryanspl2004@gmail.com</p>
                     </div>
                 `;
-                document.getElementById('contactForm').addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    sendEmail();
-                });
                 break;
             case 'show_about':
                 output.innerHTML = `
                     <div class="ascii-container"><pre>${asciiArtAbout}</pre></div>
                     <div class="about">
-                        <h2>About Me</h2>
+                        <h2>Hello There !</h2>
                         <img src="images/3.jpg" alt="About Image">
                         <p>Hello! I am Aryan Shandilya, a passionate web developer with a knack for creating elegant and efficient web applications.</p>
                     </div>
@@ -120,6 +125,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     }
+    function renderSkillsChart() {
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: skillsData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+        // Function to dynamically add skills
+        function addSkill(label, level) {
+            skillsData.labels.push(label);
+            skillsData.datasets[0].data.push(level);
+        }
+    
+        // Function to dynamically remove skills
+        function removeSkill(label) {
+            const index = skillsData.labels.indexOf(label);
+            if (index > -1) {
+                skillsData.labels.splice(index, 1);
+                skillsData.datasets[0].data.splice(index, 1);
+            }
+        }
+
+    // Example usage:
+addSkill('Python', 60);
+addSkill('Arduino', 20);
+addSkill('Raspberry Pi', 30);
+addSkill('C++', 50);
+addSkill('Json', 10);
+    // removeSkill('Node.js');
     function loadProjects() {
         fetch('projects.json')
             .then(response => response.json())
@@ -146,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error:', error);
             });
     }
+
     function showHint() {
         output.innerHTML = `
         <p id="titleCmd">Available commands:</p>
@@ -207,32 +250,20 @@ document.addEventListener('DOMContentLoaded', function () {
         typing();
     }
 
-    typeEffect(title, "Aryan Shandilya", 100);
-    typeEffect(footer, "© 2024 | Made with ❤️ by a.s", 50);
-
-    // EmailJS integration
-    (function(){
-        emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
-    })();
-
-    function sendEmail() {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            message: message
-        };
-
-        emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('Your message has been sent!');
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Failed to send the message. Please try again.');
-            });
+    function displayTitle() {
+        const titleText = "Aryan Shandilya";
+        const footerText = " | A.S.";
+        const titleElement = document.getElementById('title');
+        const footerElement = document.getElementById('footer');
+        typeEffect(titleElement, titleText, 100);
+        typeEffect(footerElement, footerText, 50);
     }
+    setFooterYear();
+    displayTitle();
+    function setFooterYear() {
+        const footerElement = document.getElementById('footer');
+        const currentYear = new Date().getFullYear();
+        footerElement.innerHTML = `© ${currentYear}`;
+    }
+    
 });

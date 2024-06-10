@@ -1,5 +1,4 @@
 /* dark-mode.css */
-
 body.dark {
     background: #000000;
     color: #fff;
@@ -49,13 +48,15 @@ body.dark {
   
 
 body.dark #BB{
-    color: #20bb18;
-    border: 1.4px solid #20bb18;
+  background-color: rgba(76, 3, 244, 0.2);
+  border: 1.5px solid rgba(76, 3, 244, 1);
+  color: rgba(76, 3, 244, 1);
 }
 
 body.dark #BB:hover{
-    color: #ff0000;
-    border: 1.4px solid rgb(255, 0, 0);
+  background-color: rgba(240, 31, 174, 0.2);
+  border: 1.5px solid rgba(240, 31, 174, 1);
+  color: rgba(240, 31, 174, 1);
 }
 
 
@@ -98,33 +99,9 @@ body.dark .ascii-container {
   }
 
 
-  /* Contact form styles dark mode */
-body.dark .contact-form {
-  background-color: transparent;
-  border: 1.5px solid rgb(255, 0, 0);
-  /* box-shadow: 0 0 10px white; */
-}
-body.dark .contact-form h1 {
-  color: orange;
-}
-
-body.dark .contact-form label {
-  color: blue;
-}
-
-body.dark .contact-form input,
-body.dark .contact-form textarea {
-  color: rgb(0, 0, 0);
-  border: 1.5px solid rgb(193, 193, 0);
-  background-color: transparent;
-}
-
-body.dark .contact-form button {
-  background-color: transparent;
-  border: 1.5px solid rgb(0, 0, 0);
-  color: blue;
-}
-
-body.dark .contact-form button:hover {
-  border: 1.5px solid rgb(255, 0, 0);
-}
+  body.dark .contact-details{
+    text-align: center;
+  }
+  body.dark .contact-details h2{
+      color: rgb(34, 0, 255);
+  }

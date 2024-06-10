@@ -4,7 +4,6 @@ body, h1, p, input, button {
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: "Courier New", Courier, monospace;
   line-height: 1.6;
@@ -22,6 +21,7 @@ header {
   padding: 1rem;
   width: 100%;
   text-align: center;
+
 }
 
 header h1 {
@@ -44,22 +44,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 1.5px solid #0f0;
-  color: #0f0;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  border: 1.5px solid yellow;
-  color: yellow;
 }
 
 .hint-link {
@@ -191,7 +175,9 @@ pre {
   color: yellow;
 }
 
-
+.skills{
+  margin-top: 2rem;
+}
 
 .btCls {
   text-align: center;
@@ -204,17 +190,17 @@ pre {
   margin-bottom: 1.5rem;
   border-radius: 12px;
   padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 1.5px solid #f00;
-  color: #f00;
+  background-color: rgba(3, 245, 245, 0.2);
+  border: 1.5px solid rgba(3, 245, 245, 1);
+  color: rgba(3, 245, 245, 1);
   cursor: pointer;
-  transition: background-color 0.3s ease;
   font-family: "Courier New", Courier, monospace;
 }
 
 .back-button:hover {
-  border: 1.5px solid yellow;
-  color: yellow;
+  background-color: rgba(255, 251, 0, 0.2);
+  border: 1.5px solid rgba(255, 251, 0, 1);
+  color: rgba(255, 251, 0, 1);
 }
 .project-buttons {
   display: flex;
@@ -262,69 +248,9 @@ pre {
   background-color: #ffffff;
 }
 
-
-
-
-/* Contact form styles */
-.contact-form {
-  background-color: transparent;
-  padding: 20px;
-  border: 1.5px solid #0f0;
-  border-radius: 20px;
-  width: 300px;
-  /* box-shadow: 0 0 10px white; */
-  margin: 20px auto;
-  box-sizing: border-box; /* Ensure padding is included in width and height calculations */
-}
-.contact-form h1 {
+.contact-details{
   text-align: center;
-  margin-bottom: 20px;
-  color: yellow;
 }
-
-.contact-form .form-group {
-  margin-bottom: 15px;
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  color: red;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.contact-form input,
-.contact-form textarea {
-  font-family: "Courier New", Courier, monospace;
-  color: white;
-  width: 100%;
-  padding: 10px;
-  border: 1.5px solid #0f0;
-  border-radius: 15px;
-  background-color: transparent;
-  resize:none;
-  max-width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in width calculations */
-}
-
-.contact-form textarea {
-  padding: 10px;
-  margin-top: 5px; /* Add margin-top to prevent touching the border */
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 25px;
-  background-color: transparent;
-  border: 1.5px solid #0f0;
-  color: yellow;
-  font-size: 16px;
-  font-family: "Courier New", Courier, monospace;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  border: 1.5px solid yellow;
+.contact-details h2{
+    color: yellow;
 }
