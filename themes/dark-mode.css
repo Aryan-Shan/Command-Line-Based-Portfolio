@@ -66,7 +66,7 @@ body.dark .contact {
 
   background: transparent;
   color: rgb(29, 29, 29);
-
+  
 }
 
 
@@ -74,6 +74,11 @@ body.dark .project h2,
 body.dark .about h2, 
 body.dark .contact h2 {
   color: orange
+}
+body.dark .project img,  
+body.dark .contact img {
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Black box shadow with 50% opacity */
 }
 
 body.dark .ascii-container {
@@ -127,4 +132,9 @@ body.dark #likeCounter {
   margin-top: 5px;
   font-size: 14px;
   color: #fff; /* Text color for like counter in dark mode */
+}
+
+body.dark .about img {
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Black box shadow with 50% opacity */
 }

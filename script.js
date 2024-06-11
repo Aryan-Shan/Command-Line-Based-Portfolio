@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="ascii-container"><pre>${asciiArtAbout}</pre></div>
                     <div class="about">
                         <h2>Hello There !</h2>
-                        <img src="images/3.jpg" alt="About Image">
-                        <p>Hello! I am Aryan Shandilya, a passionate web developer with a knack for creating elegant and efficient web applications.</p>
+                        <img src="images/dp/dp.jpg" alt="About Image">
+                        <p>Hey there, Aryan Shandilya! 👋 Welcome! It's awesome to meet a fellow passionate web developer like you! 🚀 I can imagine you're crafting some seriously sleek and efficient web applications! 💻✨ It's all about that perfect blend of elegance and functionality, right? 🎨⚙️ Let's keep pushing those boundaries and creating some truly amazing stuff together! 🌟🚀</p>
                     </div>
                 `;
                 break;

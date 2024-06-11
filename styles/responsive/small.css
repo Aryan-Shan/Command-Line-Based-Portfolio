@@ -248,7 +248,10 @@ body, h1, p, input, button {
   ::-webkit-scrollbar-thumb:hover {
     background-color: #ffffff;
   }
-  
+  .about img {
+    max-width: 200px; /* Adjust this value to your desired width */
+    height: auto; /* Maintain aspect ratio */
+}
 
   .like-container {
     position: absolute;

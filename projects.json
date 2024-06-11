@@ -1,16 +1,16 @@
 [
     {
-        "title": "Project One",
-        "image": "images/1.jpg",
-        "description": "Project One description...",
-        "demoLink": "https://example.com/demo1",
-        "githubLink": "https://github.com/aryan/project1"
+        "title": "1",
+        "image": "images/projects/pr1.png",
+        "description": "Trex-Fold is a website that allows users to play the popular Chrome T-rex game using hand gestures. The project was made possible by tensorflow Js that allows for quick hand detection and distance calculation.",
+        "demoLink": "https://aryan-shan.github.io/Trex-Fold/",
+        "githubLink": "https://github.com/Aryan-Shan/Trex-Fold"
     },
     {
-        "title": "Project Two",
-        "image": "images/2.jpg",
-        "description": "Project Two description...",
-        "demoLink": "https://example.com/demo2",
-        "githubLink": "https://github.com/aryan/project2"
+        "title": "2",
+        "image": "images/projects/pr2.png",
+        "description": "Conway's Game of Life is a popular zero-player game developed by British mathematician John Horton Conway. I made an Open Source Contribution to the project by adding presets and it improved the overall functionality of the website",
+        "demoLink": "https://eternalgameoflife.netlify.app/",
+        "githubLink": "https://github.com/Aryan-Shan/gameoflife"
     }
 ]
