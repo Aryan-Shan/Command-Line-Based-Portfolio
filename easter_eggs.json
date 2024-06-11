@@ -26,5 +26,9 @@
     {
         "command": "rick_roll",
         "content": "<div class='easter-egg'><h1>Never Gonna Give You Up!</h1><img src='images/rick.gif' alt='Easter Egg'></div>"
+    },
+    {
+        "command": "shri_krishna",
+        "content": "<div class='easter-egg'><h1>Bhagavad Gita: Chapter 4, Verse 5</h1><h3>Many Lives O Arjuna I and you have lived, I remember them all but thou does not.</h3></div>"
     }
 ]
