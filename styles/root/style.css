@@ -269,3 +269,33 @@ pre {
   width: 150px; /* Sets the image width to 50px */
   height: auto; /* Maintains aspect ratio */
 }
+
+
+/* like button styling */
+
+
+.like-container {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+}
+
+.heart-icon.liked .heart {
+  fill: rgb(252, 0, 42);
+}
+
+#likeCounter {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #000;
+}

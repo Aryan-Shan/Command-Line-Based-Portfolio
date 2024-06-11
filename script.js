@@ -55,6 +55,34 @@ document.addEventListener('DOMContentLoaded', function () {
     const backButton = document.querySelector('.btCls');
     let easterEggs = [];
 
+    //heart icon logic
+    const heartIcon = document.querySelector('.heart-icon');
+    const likeCounter = document.getElementById('likeCounter');
+
+    let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+    let isLiked = localStorage.getItem('isLiked') === 'true';
+
+    likeCounter.textContent = likeCount;
+
+    if (isLiked) {
+        heartIcon.classList.add('liked');
+    }
+
+    heartIcon.addEventListener('click', function () {
+        if (!isLiked) {
+            likeCount++;
+            heartIcon.classList.add('liked');
+            isLiked = true;
+        } else {
+            likeCount--;
+            heartIcon.classList.remove('liked');
+            isLiked = false;
+        }
+
+        likeCounter.textContent = likeCount;
+        localStorage.setItem('likeCount', likeCount);
+        localStorage.setItem('isLiked', isLiked);
+    });
     // Fetch Easter Eggs from JSON
     fetch('easter_eggs.json')
         .then(response => response.json())

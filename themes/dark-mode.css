@@ -105,3 +105,26 @@ body.dark .ascii-container {
   body.dark .contact-details h2{
       color: rgb(34, 0, 255);
   }
+
+
+
+  /* heart icon styles */
+
+  /* dark-mode.css */
+
+body.dark .heart-icon {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+  fill: #fff; /* Default fill for heart icon in dark mode */
+}
+
+body.dark .heart-icon.liked .heart {
+  fill: rgb(255, 0, 43); /* Fill color when liked in dark mode */
+}
+
+body.dark #likeCounter {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff; /* Text color for like counter in dark mode */
+}

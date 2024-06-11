@@ -249,3 +249,13 @@ body, h1, p, input, button {
     background-color: #ffffff;
   }
   
+
+  .like-container {
+    position: absolute;
+    top: 30px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
