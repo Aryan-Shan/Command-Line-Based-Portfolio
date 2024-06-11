@@ -1,0 +1,10 @@
+[
+    {
+        "command": "show_ghost",
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/ghost.gif' alt='Ghost'></div>"
+    },
+    {
+        "command": "show_ee",
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_egg.gif' alt='Easter Egg'></div>"
+    }
+]

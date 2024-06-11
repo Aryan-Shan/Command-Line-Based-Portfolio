@@ -254,3 +254,18 @@ pre {
 .contact-details h2{
     color: yellow;
 }
+
+
+.easter-egg {
+  font-size: x-small;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.easter-egg img {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  width: 150px; /* Sets the image width to 50px */
+  height: auto; /* Maintains aspect ratio */
+}

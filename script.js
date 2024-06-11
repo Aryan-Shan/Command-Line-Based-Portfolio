@@ -46,12 +46,20 @@ const skillsData = {
         borderWidth: 1
     }]
 };
+
 document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('command-line-input');
     const output = document.getElementById('command-line-output');
     const title = document.getElementById('title');
     const footer = document.getElementById('footer');
     const backButton = document.querySelector('.btCls');
+    let easterEggs = [];
+
+    // Fetch Easter Eggs from JSON
+    fetch('easter_eggs.json')
+        .then(response => response.json())
+        .then(data => easterEggs = data)
+        .catch(error => console.error('Error loading easter eggs:', error));
 
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
@@ -72,6 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function processCommand(command) {
+        const easterEgg = easterEggs.find(egg => egg.command === command);
+        if (easterEgg) {
+            output.innerHTML = easterEgg.content;
+            return;
+        }
+
         switch (command.toLowerCase()) {
             case 'show_resume':
                 output.innerHTML = `
@@ -86,15 +100,15 @@ document.addEventListener('DOMContentLoaded', function () {
             case 'show_projects':
                 loadProjects();
                 break;
-                case 'show_skills':
-                    output.innerHTML = `
-                        <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
-                        <div class="skills">
-                            <canvas id="skillsChart"></canvas>
-                        </div>
-                    `;
-                    renderSkillsChart();
-                    break;
+            case 'show_skills':
+                output.innerHTML = `
+                    <div class="ascii-container"><pre>${asciiArtSkills}</pre></div>
+                    <div class="skills">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                `;
+                renderSkillsChart();
+                break;
             case 'show_contact':
                 output.innerHTML = `
                     <div class="contact-details">
@@ -125,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     }
+
     function renderSkillsChart() {
         const ctx = document.getElementById('skillsChart').getContext('2d');
         new Chart(ctx, {
@@ -140,28 +155,30 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-        // Function to dynamically add skills
-        function addSkill(label, level) {
-            skillsData.labels.push(label);
-            skillsData.datasets[0].data.push(level);
+
+    // Function to dynamically add skills
+    function addSkill(label, level) {
+        skillsData.labels.push(label);
+        skillsData.datasets[0].data.push(level);
+    }
+
+    // Function to dynamically remove skills
+    function removeSkill(label) {
+        const index = skillsData.labels.indexOf(label);
+        if (index > -1) {
+            skillsData.labels.splice(index, 1);
+            skillsData.datasets[0].data.splice(index, 1);
         }
-    
-        // Function to dynamically remove skills
-        function removeSkill(label) {
-            const index = skillsData.labels.indexOf(label);
-            if (index > -1) {
-                skillsData.labels.splice(index, 1);
-                skillsData.datasets[0].data.splice(index, 1);
-            }
-        }
+    }
 
     // Example usage:
-addSkill('Python', 60);
-addSkill('Arduino', 20);
-addSkill('Raspberry Pi', 30);
-addSkill('C++', 50);
-addSkill('Json', 10);
+    addSkill('Python', 60);
+    addSkill('Arduino', 20);
+    addSkill('Raspberry Pi', 30);
+    addSkill('C++', 50);
+    addSkill('Json', 10);
     // removeSkill('Node.js');
+
     function loadProjects() {
         fetch('projects.json')
             .then(response => response.json())
@@ -191,7 +208,7 @@ addSkill('Json', 10);
 
     function showHint() {
         output.innerHTML = `
-        <p id="titleCmd">Available commands:</p>
+            <p id="titleCmd">Available commands:</p>
             ${createHintLink('show_resume')}
             ${createHintLink('show_projects')}
             ${createHintLink('show_skills')}
@@ -223,16 +240,6 @@ addSkill('Json', 10);
         localStorage.isDark = true;
     }
 
-
-    if (
-        localStorage.isDark === "true" ||
-        (localStorage.isDark === undefined &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-        document.body.classList.add("dark");
-        localStorage.isDark = true;
-    }
-
     document.getElementById('darkmode').addEventListener('click', function () {
         document.body.classList.toggle('dark');
         localStorage.isDark = document.body.classList.contains('dark');
@@ -258,12 +265,13 @@ addSkill('Json', 10);
         typeEffect(titleElement, titleText, 100);
         typeEffect(footerElement, footerText, 50);
     }
-    setFooterYear();
-    displayTitle();
+
     function setFooterYear() {
         const footerElement = document.getElementById('footer');
         const currentYear = new Date().getFullYear();
         footerElement.innerHTML = `© ${currentYear}`;
     }
     
+    displayTitle();
+    setFooterYear();
 });
