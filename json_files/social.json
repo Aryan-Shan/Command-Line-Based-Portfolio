@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Instagram",
+        "link": "https://www.instagram.com/yourprofile",
+        "icon": "images/socials/instagram.svg"
+    },
+    {
+        "name": "GitHub",
+        "link": "https://github.com/yourprofile",
+        "icon": "images/socials/github.svg"
+    },
+    {
+        "name": "LinkedIn",
+        "link": "https://www.linkedin.com/in/yourprofile",
+        "icon": "images/socials/linkedin.svg"
+    }
+]

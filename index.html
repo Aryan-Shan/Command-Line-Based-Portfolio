@@ -58,7 +58,43 @@
     </div>
     <div id="likeCounter">0</div>
 </div>
+<div id="social-media-links"></div>
 
+<script>
+    // Fetch the JSON data and render the social media links
+    fetch('json_files/social.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('social-media-links');
+
+            data.forEach(social => {
+                const linkElement = document.createElement('a');
+                linkElement.href = social.link;
+                linkElement.target = "_blank";
+                linkElement.title = social.name;
+
+                // Add specific class based on the social media name
+                if (social.name.toLowerCase() === 'instagram') {
+                    linkElement.classList.add('instagram-icon');
+                } else if (social.name.toLowerCase() === 'github') {
+                    linkElement.classList.add('github-icon');
+                } else if (social.name.toLowerCase() === 'linkedin') {
+                    linkElement.classList.add('linkedin-icon');
+                }
+
+                const iconElement = document.createElement('img');
+                iconElement.src = social.icon;
+                iconElement.alt = social.name + ' icon';
+                iconElement.style.width = '24px'; // adjust size as needed
+                iconElement.style.height = '24px';
+                iconElement.style.margin = '5px'; // optional: adds some spacing between icons
+
+                linkElement.appendChild(iconElement);
+                container.appendChild(linkElement);
+            });
+        })
+        .catch(error => console.error('Error fetching the social media links:', error));
+</script>
     
     <footer>
         <div class="container">

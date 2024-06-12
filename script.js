@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Fetch Easter Eggs from JSON
-    fetch('easter_eggs.json')
+    fetch('json_files/easter_eggs.json')
         .then(response => response.json())
         .then(data => easterEggs = data)
         .catch(error => console.error('Error loading easter eggs:', error));
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
     removeSkill('React');
 
     function loadProjects() {
-        fetch('projects.json')
+        fetch('json_files/projects.json')
             .then(response => response.json())
             .then(projects => {
                 output.innerHTML = `
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Fetch the resume data from JSON
 function fetchResume() {
-    return fetch('resume.json')
+    return fetch('json_files/resume.json')
         .then(response => response.json())
         .catch(error => {
             console.error('Error loading resume:', error);
@@ -480,10 +480,11 @@ function generatePDF(data) {
 
 // Fetch and display the resume
 function fetchResume() {
-    fetch('resume.json')
+    fetch('json_files/resume.json')
         .then(response => response.json())
         .then(data => displayResume(data))
         .catch(error => {
             console.error('Error loading resume:', error);
         });
 }
+

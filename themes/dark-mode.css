@@ -162,3 +162,30 @@ body.dark #downloadBtn:hover {
   border: 1.5px solid rgba(0, 255, 30, 1);
   color: rgba(0, 255, 30, 1);
 }
+
+
+/* Specific SVG icon colors */
+body.dark #social-media-links .instagram-icon img {
+  filter: invert(100%); /* Invert the colors to make the Instagram icon white in dark mode */
+}
+
+body.dark #social-media-links .github-icon img {
+  filter: invert(100%); /* Invert the colors to make the GitHub icon white in dark mode */
+}
+
+body.dark #social-media-links .linkedin-icon img {
+  filter: invert(100%); /* Invert the colors to make the LinkedIn icon white in dark mode */
+}
+
+/* Specific SVG icon hover effects */
+body.dark #social-media-links .instagram-icon img:hover {
+  filter: invert(43%) sepia(66%) saturate(3502%) hue-rotate(316deg) brightness(101%) contrast(99%); /* Pink */
+}
+
+body.dark #social-media-links .github-icon img:hover {
+  filter: invert(75%) sepia(0%) saturate(0%) hue-rotate(215deg) brightness(85%) contrast(79%);
+}
+
+body.dark #social-media-links .linkedin-icon img:hover {
+  filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
+}

@@ -1,5 +1,9 @@
 /* Reset some default browser styles */
-body, h1, p, input, button {
+body,
+h1,
+p,
+input,
+button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,7 +25,6 @@ header {
   padding: 1rem;
   width: 100%;
   text-align: center;
-
 }
 
 header h1 {
@@ -125,16 +128,16 @@ footer {
   overflow: auto;
   background: #000;
   /* color: rgb(255, 0, 0); */
-  padding:0;
+  padding: 0;
   white-space: pre-wrap;
   font-family: "Courier New", Courier, monospace;
   animation: fadeIn 0.5s;
 }
 .ascii-container,
 .ascii-container > * {
-background: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 255, 229));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 255, 229));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 pre {
@@ -142,34 +145,41 @@ pre {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-#titleCmd{
-  color: rgb(255, 255, 255); 
+#titleCmd {
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
-  
-  .project, .about, .contact {
-    margin: 0rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: transparent;
-    color: white;
-    border-radius: 10px;
-    width: 96%;
-    max-width: 100%;
-    text-align: center;
-  }
-.about img {
-    max-width: 200px; /* Adjust this value to your desired width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 30px;
-    margin-bottom: 2rem;
-    border: 1.5px solid white;
+
+.project,
+.about,
+.contact {
+  margin: 0rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  width: 96%;
+  max-width: 100%;
+  text-align: center;
 }
-.project img,.contact img {
+.about img {
+  max-width: 200px; /* Adjust this value to your desired width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 30px;
+  margin-bottom: 2rem;
+  border: 1.5px solid white;
+}
+.project img,
+.contact img {
   border: 2px solid rgb(255, 255, 255);
   max-width: 100%;
   height: auto;
@@ -177,13 +187,15 @@ pre {
   margin-bottom: 2rem;
 }
 
-.project h2, .about h2, .contact h2 {
+.project h2,
+.about h2,
+.contact h2 {
   margin-bottom: 10px;
   font-size: 1.5rem;
   color: yellow;
 }
 
-.skills{
+.skills {
   margin-top: 2rem;
 }
 
@@ -256,13 +268,12 @@ pre {
   background-color: #ffffff;
 }
 
-.contact-details{
+.contact-details {
   text-align: center;
 }
-.contact-details h2{
-    color: yellow;
+.contact-details h2 {
+  color: yellow;
 }
-
 
 .easter-egg {
   font-size: x-small;
@@ -278,9 +289,7 @@ pre {
   height: auto; /* Maintains aspect ratio */
 }
 
-
 /* like button styling */
-
 
 .like-container {
   position: absolute;
@@ -309,7 +318,6 @@ pre {
   display: none;
 }
 
-
 * {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -319,8 +327,6 @@ pre {
   user-select: none; /* Non-prefixed version, currently supported by most browsers */
 }
 
-
-
 .resume {
   font-family: "Tajawal", sans-serif;
   font-weight: 300;
@@ -329,15 +335,25 @@ pre {
   color: #fff;
 }
 
-.resume h2, .resume h3 {
+.resume h2,
+.resume h3 {
   color: #fcf800;
 }
 
-.resume .contact, .resume .objective, .resume .education, .resume .coursework, .resume .project, .resume .experience, .resume .technical-skills, .resume .activities, .resume .honors {
+.resume .contact,
+.resume .objective,
+.resume .education,
+.resume .coursework,
+.resume .project,
+.resume .experience,
+.resume .technical-skills,
+.resume .activities,
+.resume .honors {
   margin-bottom: 20px;
 }
 
-.resume p, .resume li {
+.resume p,
+.resume li {
   margin: 5px 0;
 }
 
@@ -346,10 +362,10 @@ pre {
   margin-left: 10px;
 }
 
-.resume .education-item, .resume .experience-item {
+.resume .education-item,
+.resume .experience-item {
   margin-bottom: 10px;
 }
-
 
 #downloadBtn {
   padding: 0.5rem 1rem;
@@ -366,4 +382,73 @@ pre {
 #downloadBtn:hover {
   border: 1.5px solid yellow;
   color: yellow;
+}
+
+/* Social Media Icons Styling */
+#social-media-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#social-media-links a {
+  transition: transform 0.3s;
+}
+
+#social-media-links a:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+#social-media-links img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+  margin: 5px; /* Adds some spacing around icons */
+}
+
+/* Social Media Icons Styling */
+#social-media-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#social-media-links a {
+  transition: transform 0.3s, filter 0.3s; /* Add transition for filter */
+}
+
+#social-media-links a:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+#social-media-links img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+  margin: 5px; /* Adds some spacing around icons */
+}
+
+/* Specific icon colors */
+#social-media-links .instagram-icon img {
+  filter: invert(32%) sepia(88%) saturate(2841%) hue-rotate(319deg) brightness(91%) contrast(101%);
+}
+
+#social-media-links .instagram-icon:hover img {
+  filter: invert(43%) sepia(66%) saturate(3502%) hue-rotate(316deg) brightness(101%) contrast(99%); /* Pink */
+}
+
+#social-media-links .github-icon img {
+  filter: invert(13%) sepia(0%) saturate(0%) hue-rotate(178deg) brightness(92%) contrast(92%);
+}
+
+#social-media-links .github-icon:hover img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(0%) contrast(100%); /* Grey */
+}
+
+#social-media-links .linkedin-icon img {
+  filter: invert(27%) sepia(88%) saturate(2772%) hue-rotate(175deg) brightness(93%) contrast(102%);
+}
+
+#social-media-links .linkedin-icon:hover img {
+  filter: invert(58%) sepia(97%) saturate(2880%) hue-rotate(178deg) brightness(96%) contrast(101%); /* Sky blue */
 }
