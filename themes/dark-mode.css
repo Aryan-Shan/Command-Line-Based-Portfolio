@@ -1,4 +1,7 @@
 /* dark-mode.css */
+/* This is styling for the dark theme */
+/* Note:- use the prefix body.dark to handle element styling in dark mode. */
+
 body.dark {
     background: #000000;
     color: #fff;
@@ -114,9 +117,6 @@ body.dark .ascii-container {
 
 
   /* heart icon styles */
-
-  /* dark-mode.css */
-
 body.dark .heart-icon {
   width: 24px;
   height: 24px;

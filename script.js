@@ -1,3 +1,8 @@
+// Author :- Aryan Shandilya
+// Date Created:- 13-6-24
+// Open Source Project:- Copyright Free (Except Media)
+
+// Ascii Arts Constants
 const asciiArtProjects = `
  ____            _           _       
 |  _ \\ _ __ ___ (_) ___  ___| |_ ___ 
@@ -395,7 +400,7 @@ function generatePDF(data) {
 
     let y = marginTop;
 
-    // Utility function to add text and handle new page if needed
+    // Utility function to make downloadable media and add text and handle new page if needed
     function addText(text, x, lineHeightIncrease = lineHeight) {
         if (y + lineHeightIncrease > maxLineHeight) {
             doc.addPage();

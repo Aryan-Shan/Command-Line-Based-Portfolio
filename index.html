@@ -1,24 +1,27 @@
+<!-- Author :- Aryan Shandilya
+Date Created:- 13-6-24
+Open Source Project:- Copyright Free (Except Media) -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aryan Shandilya</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Google Fonts Header-->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 
-    <link rel="stylesheet" href="styles/root/style.css">
-    <link rel="stylesheet" href="styles/responsive/small.css" media="only screen and (max-width: 599px)">
-    <link rel="stylesheet" href="styles/responsive/medium.css" media="only screen and (min-width: 600px) and (max-width: 1199px)">
-    <link rel="stylesheet" href="styles/responsive/large.css" media="only screen and (min-width: 1200px)">
-    <link rel="stylesheet" href="themes/dark-mode.css">
+    <link rel="stylesheet" href="styles/root/style.css"> <!--Style Headers--> 
+    <link rel="stylesheet" href="styles/responsive/small.css" media="only screen and (max-width: 599px)"> <!--Style Headers--> 
+    <link rel="stylesheet" href="styles/responsive/medium.css" media="only screen and (min-width: 600px) and (max-width: 1199px)"> <!--Style Headers--> 
+    <link rel="stylesheet" href="styles/responsive/large.css" media="only screen and (min-width: 1200px)"> <!--Style Headers--> 
+    <link rel="stylesheet" href="themes/dark-mode.css"> <!--Style Headers--> 
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--JavaScript Chart Header--> 
 </head>
 <body>
     <header>
@@ -34,17 +37,17 @@
                 <div class="btCls"><button id="BB" class="back-button" onclick="showHint()">CMD_dir</button></div>
                 <input type="text" id="command-line-input" autofocus placeholder="Type a command...">
             </div>
-            <div id="resume-container" class="hidden"></div> <!-- Add this line -->
+            <div id="resume-container" class="hidden"></div>
         </div>
     </main>
     <button id="darkmode" onclick="toggleTheme()"></button>
     <div class="like-container">
     <div class="heart-icon">
-        <!-- Paste your modified SVG content here -->
+       
         <?xml version="1.0" encoding="iso-8859-1"?>
-        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+       
         <svg class="heart-icon" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-             viewBox="0 0 471.701 471.701" xml:space="preserve">
+             viewBox="0 0 471.701 471.701" xml:space="preserve"> <!--Heart Icon-->
         <g>
             <path class="heart" d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1
                 c-24.7-24.7-57.6-38.4-92.5-38.4c-34.8,0-67.6,13.6-92.2,38.2c-24.7,24.7-38.3,57.5-38.2,92.4c0,34.9,13.7,67.6,38.4,92.3
@@ -85,7 +88,7 @@
                 const iconElement = document.createElement('img');
                 iconElement.src = social.icon;
                 iconElement.alt = social.name + ' icon';
-                iconElement.style.width = '24px'; // adjust size as needed
+                iconElement.style.width = '24px'; // adjust icon size as needed
                 iconElement.style.height = '24px';
                 iconElement.style.margin = '5px'; // optional: adds some spacing between icons
 
