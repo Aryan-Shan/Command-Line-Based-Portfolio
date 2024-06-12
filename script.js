@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayTitle() {
         const titleText = "Aryan Shandilya";
-        const footerText = " | A.S.";
+        const footerText = " | illic 'magis'";
         const titleElement = document.getElementById('title');
         const footerElement = document.getElementById('footer');
         typeEffect(titleElement, titleText, 100);

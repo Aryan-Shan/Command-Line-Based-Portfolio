@@ -1,31 +1,31 @@
 [
     {
         "command": "show_ghost",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/ghost.gif' alt='Ghost'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/ghost.gif' alt='Ghost'></div>"
     },
     {
         "command": "show_ee",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_egg.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/easter_egg.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "show_cat",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/cat.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/cat.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "show_dog",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/dog.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/dog.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "ash_ketchum",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/pika.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/pika.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "among_us",
-        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/among.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>You found an easter egg!</h1><img src='images/easter_eggs/among.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "rick_roll",
-        "content": "<div class='easter-egg'><h1>Never Gonna Give You Up!</h1><img src='images/rick.gif' alt='Easter Egg'></div>"
+        "content": "<div class='easter-egg'><h1>Never Gonna Give You Up!</h1><img src='images/easter_eggs/rick.gif' alt='Easter Egg'></div>"
     },
     {
         "command": "shri_krishna",

@@ -1,17 +1,17 @@
 [
     {
         "name": "Instagram",
-        "link": "https://www.instagram.com/yourprofile",
+        "link": "https://www.instagram.com/aryan_shndl?igsh=NXlscHpubW9sajht",
         "icon": "images/socials/instagram.svg"
     },
     {
         "name": "GitHub",
-        "link": "https://github.com/yourprofile",
+        "link": "https://github.com/Aryan-Shan",
         "icon": "images/socials/github.svg"
     },
     {
         "name": "LinkedIn",
-        "link": "https://www.linkedin.com/in/yourprofile",
+        "link": "https://www.linkedin.com/in/aryan-shandilya-sr?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "icon": "images/socials/linkedin.svg"
     }
 ]
