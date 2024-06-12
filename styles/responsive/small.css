@@ -269,5 +269,9 @@ body, h1, p, input, button {
 
   #downloadBtn {
     margin-top: 1rem;
-    width: 50%;
+    width: 60%;
+  }
+
+  .resume {
+    text-align: center;
   }

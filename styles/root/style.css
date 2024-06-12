@@ -1,7 +1,6 @@
 /* Reset some default browser styles */
 
 /* This is the root style for the website */
-
 body,
 h1,
 p,
@@ -380,6 +379,7 @@ pre {
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #downloadBtn:hover {
