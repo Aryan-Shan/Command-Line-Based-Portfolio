@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function processCommand(command) {
-        const easterEgg = easterEggs.find(egg => egg.command === command);
+        const easterEgg = easterEggs.find(egg => egg.command === command.toLowerCase());
         if (easterEgg) {
             output.innerHTML = easterEgg.content;
             return;
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="about">
                         <h2>Hello There !</h2>
                         <img src="images/dp/dp.jpg" alt="About Image">
-                        <p>Hey there, Aryan Shandilya! 👋 Welcome! It's awesome to meet a fellow passionate web developer like you! 🚀 I can imagine you're crafting some seriously sleek and efficient web applications! 💻✨ It's all about that perfect blend of elegance and functionality, right? 🎨⚙️ Let's keep pushing those boundaries and creating some truly amazing stuff together! 🌟🚀</p>
+                        <p>Hi there! 👋 I'm Aryan Shandilya, a budding Computer Science Engineer aspiring to become a robotics engineer. I'm keenly interested in various fields of computer science, including Web Development, Robotics, and more. I believe an engineer's role is to create value in this world, and that's exactly what I'm determined to do! Thank you for visiting my portfolio. I hope you've gained some insights into my work. Keep exploring – who knows, you may come across surprises!</p>
                     </div>
                 `;
                 break;
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayTitle() {
         const titleText = "Aryan Shandilya";
-        const footerText = " | さらにあります!";
+        const footerText = " | A.S.";
         const titleElement = document.getElementById('title');
         const footerElement = document.getElementById('footer');
         typeEffect(titleElement, titleText, 100);
@@ -322,8 +322,8 @@ function fetchResume() {
         <div class="resume">
             <h2>${data.name}</h2>
             <div class="contact">
-                <p>Email: ${data.contact.email}</p>
-                <p>Phone: ${data.contact.phone}</p>
+                <p>Email: <em>${data.contact.email}</em></p>
+                <p>Phone: <em>${data.contact.phone}</em></p>
             </div>
             <div class="objective">
                 <h3>Objective</h3>

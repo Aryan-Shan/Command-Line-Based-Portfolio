@@ -430,7 +430,7 @@ pre {
 
 /* Specific icon colors */
 #social-media-links .instagram-icon img {
-  filter: invert(32%) sepia(88%) saturate(2841%) hue-rotate(319deg) brightness(91%) contrast(101%);
+  filter: initial;
 }
 
 #social-media-links .instagram-icon:hover img {
@@ -438,7 +438,7 @@ pre {
 }
 
 #social-media-links .github-icon img {
-  filter: invert(13%) sepia(0%) saturate(0%) hue-rotate(178deg) brightness(92%) contrast(92%);
+  filter: initial;
 }
 
 #social-media-links .github-icon:hover img {
@@ -446,9 +446,9 @@ pre {
 }
 
 #social-media-links .linkedin-icon img {
-  filter: invert(27%) sepia(88%) saturate(2772%) hue-rotate(175deg) brightness(93%) contrast(102%);
+  filter: initial;
 }
 
 #social-media-links .linkedin-icon:hover img {
-  filter: invert(58%) sepia(97%) saturate(2880%) hue-rotate(178deg) brightness(96%) contrast(101%); /* Sky blue */
+  filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
 }
