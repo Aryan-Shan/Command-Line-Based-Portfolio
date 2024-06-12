@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const backButton = document.querySelector('.btCls');
     let easterEggs = [];
 
-    //heart icon logic
+    // Heart icon logic
     const heartIcon = document.querySelector('.heart-icon');
     const likeCounter = document.getElementById('likeCounter');
 
@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('likeCount', likeCount);
         localStorage.setItem('isLiked', isLiked);
     });
+
     // Fetch Easter Eggs from JSON
     fetch('easter_eggs.json')
         .then(response => response.json())
@@ -116,14 +117,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         switch (command.toLowerCase()) {
             case 'show_resume':
-                output.innerHTML = `
-                    <div class="about">
-                        <h2>Resume</h2>
-                        <p>Name: Aryan Shandilya</p>
-                        <p>Experience: Web Developer</p>
-                        <p>Skills: HTML, CSS, JavaScript</p>
-                    </div>
-                `;
+                fetchResume().then(resumeData => {
+                    if (resumeData) {
+                        displayResume(resumeData);
+                    } else {
+                        output.innerHTML = '<p>Error loading resume.</p>';
+                    }
+                });
                 break;
             case 'show_projects':
                 loadProjects();
@@ -205,7 +205,8 @@ document.addEventListener('DOMContentLoaded', function () {
     addSkill('Raspberry Pi', 30);
     addSkill('C++', 50);
     addSkill('Json', 10);
-    // removeSkill('Node.js');
+    removeSkill('Node.js');
+    removeSkill('React');
 
     function loadProjects() {
         fetch('projects.json')
@@ -303,3 +304,186 @@ document.addEventListener('DOMContentLoaded', function () {
     displayTitle();
     setFooterYear();
 });
+
+// Fetch the resume data from JSON
+function fetchResume() {
+    return fetch('resume.json')
+        .then(response => response.json())
+        .catch(error => {
+            console.error('Error loading resume:', error);
+            return null;
+        });
+}
+
+ // Function to display the resume
+ function displayResume(data) {
+    const output = document.getElementById('command-line-output');
+    output.innerHTML = `
+        <div class="resume">
+            <h2>${data.name}</h2>
+            <div class="contact">
+                <p>Email: ${data.contact.email}</p>
+                <p>Phone: ${data.contact.phone}</p>
+            </div>
+            <div class="objective">
+                <h3>Objective</h3>
+                <p>${data.objective}</p>
+            </div>
+            <div class="education">
+                <h3>Education</h3>
+                ${data.education.map(edu => `
+                    <div class="education-item">
+                        <p><strong>${edu.degree}</strong>, ${edu.institution}, ${edu.location}</p>
+                        <p>Graduation Date: ${edu.graduation_date}</p>
+                        ${edu.gpa ? `<p>Percentage: ${edu.gpa}</p>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+            <div class="coursework">
+                <h3>Relevant Coursework</h3>
+                <ul>
+                    ${data.coursework.map(course => `<li>${course}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="project">
+                <h3>Project</h3>
+                <p><strong>${data.project.title}</strong> (${data.project.date})</p>
+                <p>${data.project.description}</p>
+            </div>
+            <div class="experience">
+                <h3>Experience</h3>
+                ${data.experience.map(exp => `
+                    <div class="experience-item">
+                        <p><strong>${exp.title}</strong>, ${exp.organization}, ${exp.location} (${exp.dates})</p>
+                        <p>${exp.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="technical-skills">
+                <h3>Technical Skills</h3>
+                <p>${data.technical_skills.join(', ')}</p>
+            </div>
+            <div class="activities">
+                <h3>Activities</h3>
+                <ul>
+                    ${data.activities.map(activity => `<li>${activity}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="honors">
+                <h3>Honors</h3>
+                <ul>
+                    ${data.honors.map(honor => `<li>${honor}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+        <button id="downloadBtn">Download PDF</button>
+    `;
+
+    // Add event listener for the download button
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        generatePDF(data);
+    });
+}
+
+function generatePDF(data) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    const lineHeight = 10;
+    const marginTop = 20;
+    const marginBottom = 20;
+    const maxLineHeight = 275;
+
+    let y = marginTop;
+
+    // Utility function to add text and handle new page if needed
+    function addText(text, x, lineHeightIncrease = lineHeight) {
+        if (y + lineHeightIncrease > maxLineHeight) {
+            doc.addPage();
+            y = marginTop;
+        }
+        doc.text(text, x, y);
+        y += lineHeightIncrease;
+    }
+
+    doc.setFontSize(20);
+    addText(data.name, 10, 20);
+
+    doc.setFontSize(12);
+    addText(`Email: ${data.contact.email}`, 10);
+    addText(`Phone: ${data.contact.phone}`, 10);
+
+    doc.setFontSize(14);
+    addText("Objective", 10, 14);
+    doc.setFontSize(12);
+    doc.text(data.objective, 10, y, { maxWidth: 180 });
+    y += 20;
+
+    doc.setFontSize(14);
+    addText("Education", 10, 14);
+    data.education.forEach(edu => {
+        doc.setFontSize(12);
+        addText(`${edu.degree}, ${edu.institution}, ${edu.location}`, 10);
+        addText(`Graduation Date: ${edu.graduation_date}`, 10);
+        if (edu.gpa) {
+            addText(`GPA: ${edu.gpa}`, 10);
+        }
+        y += 10;
+    });
+
+    doc.setFontSize(14);
+    addText("Relevant Coursework", 10, 14);
+    data.coursework.forEach(course => {
+        doc.setFontSize(12);
+        addText(course, 10);
+    });
+
+    y += 10;
+    doc.setFontSize(14);
+    addText("Project", 10, 14);
+    doc.setFontSize(12);
+    addText(`${data.project.title} (${data.project.date})`, 10);
+    doc.text(data.project.description, 10, y, { maxWidth: 180 });
+    y += 20;
+
+    doc.setFontSize(14);
+    addText("Experience", 10, 14);
+    data.experience.forEach(exp => {
+        doc.setFontSize(12);
+        addText(`${exp.title}, ${exp.organization}, ${exp.location} (${exp.dates})`, 10);
+        doc.text(exp.description, 10, y, { maxWidth: 180 });
+        y += 20;
+    });
+
+    doc.setFontSize(14);
+    addText("Technical Skills", 10, 14);
+    doc.setFontSize(12);
+    addText(data.technical_skills.join(', '), 10);
+
+    y += 20;
+    doc.setFontSize(14);
+    addText("Activities", 10, 14);
+    data.activities.forEach(activity => {
+        doc.setFontSize(12);
+        addText(activity, 10);
+    });
+
+    y += 10;
+    doc.setFontSize(14);
+    addText("Honors", 10, 14);
+    data.honors.forEach(honor => {
+        doc.setFontSize(12);
+        addText(honor, 10);
+    });
+
+    doc.save('resume.pdf');
+}
+
+// Fetch and display the resume
+function fetchResume() {
+    fetch('resume.json')
+        .then(response => response.json())
+        .then(data => displayResume(data))
+        .catch(error => {
+            console.error('Error loading resume:', error);
+        });
+}

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aryan Shandilya - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
     <link rel="stylesheet" href="styles/root/style.css">
     <link rel="stylesheet" href="styles/responsive/small.css" media="only screen and (max-width: 599px)">
     <link rel="stylesheet" href="styles/responsive/medium.css" media="only screen and (min-width: 600px) and (max-width: 1199px)">
@@ -29,6 +34,7 @@
                 <div class="btCls"><button id="BB" class="back-button" onclick="showHint()">CMD_dir</button></div>
                 <input type="text" id="command-line-input" autofocus placeholder="Type a command...">
             </div>
+            <div id="resume-container" class="hidden"></div> <!-- Add this line -->
         </div>
     </main>
     <button id="darkmode" onclick="toggleTheme()"></button>

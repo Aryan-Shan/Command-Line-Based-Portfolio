@@ -1,0 +1,65 @@
+{
+    "name": "Aryan Shandilya",
+    "contact": {
+      "email": "aryanspl2004@gmail.com",
+      "phone": "(+91) 9155636600"
+    },
+    "objective": "An internship or research opportunity that will allow me to utilize my problem solving skills and attention to detail to further develop my abilities in the field of computer science.",
+    "education": [
+      {
+        "institution": "VIT Bhopal University",
+        "location": "Kothri Kalan, Sehore",
+        "degree": "BTech. Computer Science with Specialization in AI-ML",
+        "graduation_date": "2027"
+      },
+      {
+        "institution": "Jawahar Vidya Mandir Shyamali",
+        "location": "Ranchi, Jharkhand",
+        "degree": "Intermediate",
+        "graduation_date": "12/05/23",
+        "gpa": "78%"
+      },
+      {
+        "institution": "St. Micahel's School",
+        "location": "Siliguri, West Bengal",
+        "degree": "Matriculation",
+        "graduation_date": "24/07/21",
+        "gpa": "96%"
+      }
+    ],
+    "coursework": [
+      "Introduction to Problem Solving using Python",
+      "Discrete Mathematics and Graph Theory",
+      "Calculus and Laplace transform",
+      "Object Oriented Programming in C++",
+      "Professional Technical Communication"
+    ],
+    "project": {
+      "title": "Hand Gesture Powered Chrome T-Rex game",
+      "description": "Created a chrome T-Rex Game that can be played using Hand Gestures.",
+      "date": "Fall 2024"
+    },
+    "experience": [
+      {
+        "title": "Open Souorce Project Contributor",
+        "organization": "GitHub",
+        "location": "Remote",
+        "dates": "May 2024 - June 2024",
+        "description": "Assisted in the addition of Presets for Conway's Game of Life which helped improve the overall functionality of the website."
+      }
+    ],
+    "technical_skills": [
+      "Intermediate experience with Python,C++,Java,HTML,CSS,JavaScript"
+    ],
+    "activities": [
+      "VIT Bhopal, Fall 2014 - Present",
+      "Jawahar Vidya Mandir Shyamali (School Captain), Spring 2022 - Spring 2023",
+      "St. Michael's School (School Prefect), 2019 - 2020"
+    ],
+    "honors": [
+      "School Captain, 2023",
+      "Best Prefect, 2020",
+      "Science Olympiad Bronze Medalist, 2015"
+    ]
+  }
+  

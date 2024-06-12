@@ -262,3 +262,9 @@ body, h1, p, input, button {
     align-items: center;
     cursor: pointer;
   }
+
+
+  #downloadBtn {
+    margin-top: 1rem;
+    width: 50%;
+  }

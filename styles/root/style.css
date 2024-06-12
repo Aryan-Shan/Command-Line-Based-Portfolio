@@ -318,3 +318,52 @@ pre {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by most browsers */
 }
+
+
+
+.resume {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.resume h2, .resume h3 {
+  color: #fcf800;
+}
+
+.resume .contact, .resume .objective, .resume .education, .resume .coursework, .resume .project, .resume .experience, .resume .technical-skills, .resume .activities, .resume .honors {
+  margin-bottom: 20px;
+}
+
+.resume p, .resume li {
+  margin: 5px 0;
+}
+
+.resume ul {
+  list-style-type: disc;
+  margin-left: 10px;
+}
+
+.resume .education-item, .resume .experience-item {
+  margin-bottom: 10px;
+}
+
+
+#downloadBtn {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  border: 1.5px solid white;
+  width: 20%;
+  color: #0f0;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#downloadBtn:hover {
+  border: 1.5px solid yellow;
+  color: yellow;
+}
