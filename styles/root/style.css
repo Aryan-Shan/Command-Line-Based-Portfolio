@@ -476,3 +476,25 @@ pre {
   width: 100%;
   height: 100%;
 }
+
+
+/* General custom cursor */
+body {
+  cursor: url('../../images/assets/cursor.png'), auto;
+}
+
+/* Custom cursor for links */
+a {
+  cursor: url('../../images/assets/cursor.png'), pointer;
+}
+
+/* Custom cursor for specific sections */
+#command-line {
+  cursor: url('../../images/assets/cursor.png'), auto;
+}
+
+/* Custom cursor for buttons */
+button {
+  cursor: url('../../images/assets/cursor.png'), pointer;
+}
+

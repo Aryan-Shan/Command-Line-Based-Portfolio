@@ -30,5 +30,17 @@
     {
         "command": "shri_krishna",
         "content": "<div class='easter-egg'><h1>Bhagavad Gita: Chapter 4, Verse 5</h1><h3>Many Lives O Arjuna I and you have lived, I remember them all but thou does not.</h3></div>"
+    },
+    {
+        "command": "show_aa",
+        "content": "<div class='easter-egg'><h3>Aur Jeevan me kya chal raha hain? 🍁</h3></div>"
+    },
+    {
+        "command": "loving_vincent",
+        "content": "<div class='easter-egg'><h1>It's a Starry Life!</h1><img src='images/easter_eggs/gogh.gif' alt='Easter Egg'></div>"
+    },
+    {
+        "command": "show_sr",
+        "content": "<div class='easter-egg'><h1>The Purple brews in !</h1><img src='images/easter_eggs/bb.gif' alt='Easter Egg'></div>"
     }
 ]
