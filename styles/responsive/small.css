@@ -169,9 +169,10 @@ body, h1, p, input, button {
     width: 88%;
     max-width: 100%;
     text-align: center;
+    font-size: 16px;
   }
   
-  .project img, .about img, .contact img {
+  .project img, .about img{
     max-width: 100%;
     height: auto;
     border-radius: 10px;
@@ -274,4 +275,23 @@ body, h1, p, input, button {
 
   .resume {
     text-align: center;
+  }
+
+
+  .resume {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .resume h2,
+  .resume h3 {
+    font-size: 18px;
+  }
+
+  .resume ul {
+    padding-left: 20px; /* Increase padding for better readability */
+  }
+
+  .resume li {
+    margin-left: 0; /* Remove margin-left for list items */
   }

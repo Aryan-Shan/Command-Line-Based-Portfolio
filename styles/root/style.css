@@ -455,3 +455,24 @@ pre {
 #social-media-links .linkedin-icon:hover img {
   filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
 }
+
+
+.map-container {
+  border-radius: 30px;
+  margin-top: 2rem;
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+  position: relative;
+  overflow: hidden;
+}
+
+.map {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  border: none;
+  width: 100%;
+  height: 100%;
+}

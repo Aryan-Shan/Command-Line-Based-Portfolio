@@ -189,3 +189,9 @@ body.dark #social-media-links .github-icon img:hover {
 body.dark #social-media-links .linkedin-icon img:hover {
   filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
 }
+
+
+.map-container {
+  border: 2px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); /* Black box shadow with 50% opacity */
+}
