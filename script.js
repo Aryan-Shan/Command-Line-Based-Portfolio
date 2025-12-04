@@ -744,25 +744,18 @@ function addMessageToChat(text, className) {
 
 async function getAIResponse(question) {
   try {
-    const configResponse = await fetch("config.json");
-    const config = await configResponse.json();
-    const apiKey = config.openRouterApiKey;
     const resumeText = await getResumeText();
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${apiKey}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": window.location.href, // Required by OpenRouter
-        "X-Title": "Aryan Shandilya Portfolio" // Optional
       },
       body: JSON.stringify({
-        "model": "openai/gpt-oss-20b:free", // Using a free model as per example, or better one if available
-        "messages": [
+        messages: [
           {
-            "role": "system",
-            "content": `You are an AI assistant for Aryan Shandilya's portfolio. 
+            role: "system",
+            content: `You are an AI assistant for Aryan Shandilya's portfolio. 
                         Here is the content of his resume: 
                         ${resumeText}
                         
@@ -770,22 +763,24 @@ async function getAIResponse(question) {
                         If the answer is not in the resume, say you don't know but suggest checking the other sections of the portfolio.`
           },
           {
-            "role": "user",
-            "content": question
+            role: "user",
+            content: question
           }
         ]
       })
     });
 
     const data = await response.json();
-    if (data.choices && data.choices.length > 0) {
+
+    if (response.ok && data.choices && data.choices.length > 0) {
       return data.choices[0].message.content;
     } else {
-      return "I couldn't generate a response. Please try again.";
+      console.error("API Error:", data.error || "Unknown error");
+      return "I couldn't generate a response. Please try again later.";
     }
 
   } catch (error) {
-    console.error("Error calling OpenRouter:", error);
+    console.error("Error calling API proxy:", error);
     throw error;
   }
 }
