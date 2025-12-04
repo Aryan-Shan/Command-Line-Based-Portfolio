@@ -329,44 +329,112 @@ pre {
   user-select: none; /* Non-prefixed version, currently supported by most browsers */
 }
 
-.resume {
-  font-family: "Tajawal", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1.6;
-  color: #fff;
+/* Resume Section Styling */
+.resume-container-styled {
+  font-family: "Courier New", Courier, monospace;
+  padding: 1rem;
+  width: 100%;
 }
 
-.resume h2,
-.resume h3 {
-  color: #fcf800;
+.resume-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed #333;
+  padding-bottom: 1rem;
 }
 
-.resume .contact,
-.resume .objective,
-.resume .education,
-.resume .coursework,
-.resume .project,
-.resume .experience,
-.resume .technical-skills,
-.resume .activities,
-.resume .honors {
-  margin-bottom: 20px;
+.name-title {
+  font-size: 2rem;
+  color: #0f0;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  margin-bottom: 0.5rem;
 }
 
-.resume p,
-.resume li {
-  margin: 5px 0;
+.resume-section {
+  margin-bottom: 1.5rem;
 }
 
-.resume ul {
-  list-style-type: disc;
-  margin-left: 10px;
+.section-title {
+  color: yellow;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  display: inline-block;
+  padding-right: 1rem;
 }
 
-.resume .education-item,
-.resume .experience-item {
-  margin-bottom: 10px;
+.resume-item, .resume-list-item {
+  margin-bottom: 0.3rem;
+  padding-left: 1rem;
+}
+
+.resume-block {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #333;
+  padding-left: 1rem;
+}
+
+.block-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.block-title {
+  color: #0ff; /* Cyan */
+  font-weight: bold;
+}
+
+.block-subtitle {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.block-date {
+  color: #ff00ff; /* Magenta */
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.block-description {
+  margin-top: 0.3rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.key {
+  color: #0ff; /* Cyan */
+  font-weight: bold;
+}
+
+.value {
+  color: inherit;
+}
+
+.bullet {
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.resume-array {
+  padding-left: 1rem;
+  color: #aaa;
+}
+
+.resume-text {
+  padding-left: 1rem;
+  font-style: italic;
+  color: #ddd;
+}
+
+.resume-actions {
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px dashed #333;
+  padding-top: 1rem;
 }
 
 #downloadBtn {

@@ -330,84 +330,109 @@ function fetchResume() {
 }
 
 // Function to display the resume
+// Function to display the resume
 function displayResume(data) {
   const output = document.getElementById("command-line-output");
-  output.innerHTML = `
-        <div class="resume">
-            <h2>${data.name}</h2>
-            <div class="contact">
-                <p>Email: <em>${data.contact.email}</em></p>
-                <p>Phone: <em>${data.contact.phone}</em></p>
-            </div>
-            <div class="objective">
-                <h3>Objective</h3>
-                <p>${data.objective}</p>
-            </div>
-            <div class="education">
-                <h3>Education</h3>
-                ${data.education
-                  .map(
-                    (edu) => `
-                    <div class="education-item">
-                        <p><strong>${edu.degree}</strong>, ${
-                      edu.institution
-                    }, ${edu.location}</p>
-                        <p>Graduation Date: ${edu.graduation_date}</p>
-                        ${edu.gpa ? `<p>Percentage: ${edu.gpa}</p>` : ""}
-                    </div>
-                `
-                  )
-                  .join("")}
-            </div>
-            <div class="coursework">
-                <h3>Relevant Coursework</h3>
-                <ul>
-                    ${data.coursework
-                      .map((course) => `<li>${course}</li>`)
-                      .join("")}
-                </ul>
-            </div>
-            <div class="project">
-                <h3>Project</h3>
-                <p><strong>${data.project.title}</strong> (${
-    data.project.date
-  })</p>
-                <p>${data.project.description}</p>
-            </div>
-            <div class="experience">
-                <h3>Experience</h3>
-                ${data.experience
-                  .map(
-                    (exp) => `
-                    <div class="experience-item">
-                        <p><strong>${exp.title}</strong>, ${exp.organization}, ${exp.location} (${exp.dates})</p>
-                        <p>${exp.description}</p>
-                    </div>
-                `
-                  )
-                  .join("")}
-            </div>
-            <div class="technical-skills">
-                <h3>Technical Skills</h3>
-                <p>${data.technical_skills.join(", ")}</p>
-            </div>
-            <div class="activities">
-                <h3>Activities</h3>
-                <ul>
-                    ${data.activities
-                      .map((activity) => `<li>${activity}</li>`)
-                      .join("")}
-                </ul>
-            </div>
-            <div class="honors">
-                <h3>Honors</h3>
-                <ul>
-                    ${data.honors.map((honor) => `<li>${honor}</li>`).join("")}
-                </ul>
-            </div>
-        </div>
-        <button id="downloadBtn">Download PDF</button>
-    `;
+
+  // Helper to create a section header
+  const createSection = (title) => `
+    <div class="resume-section">
+      <div class="section-title">> ${title.toUpperCase()}</div>
+    </div>`;
+
+  // Helper for key-value pairs
+  const createItem = (key, value) => `
+    <div class="resume-item">
+      <span class="key">${key}:</span> <span class="value">${value}</span>
+    </div>`;
+
+  // Helper for list items
+  const createListItem = (item) => `
+    <div class="resume-list-item">
+      <span class="bullet">-</span> <span class="value">${item}</span>
+    </div>`;
+
+  // Helper for complex items (Education, Experience)
+  const createComplexItem = (title, subtitle, date, description) => `
+    <div class="resume-block">
+      <div class="block-header">
+        <span class="block-title">${title}</span>
+        ${subtitle ? `<span class="block-subtitle"> // ${subtitle}</span>` : ''}
+        <span class="block-date">[${date}]</span>
+      </div>
+      ${description ? `<div class="block-description">${description}</div>` : ''}
+    </div>`;
+
+  let html = `<div class="resume-container-styled">`;
+
+  // Header
+  html += `
+    <div class="resume-header">
+      <h1 class="name-title">${data.name}</h1>
+      <div class="contact-info">
+        ${createItem("Email", data.contact.email)}
+        ${createItem("Phone", data.contact.phone)}
+      </div>
+    </div>`;
+
+  // Objective
+  html += createSection("OBJECTIVE");
+  html += `<div class="resume-text">"${data.objective}"</div>`;
+
+  // Education
+  html += createSection("EDUCATION");
+  html += data.education.map(edu =>
+    createComplexItem(
+      edu.degree,
+      `${edu.institution}, ${edu.location}`,
+      edu.graduation_date,
+      edu.gpa ? `GPA: ${edu.gpa}` : ''
+    )
+  ).join('');
+
+  // Experience
+  html += createSection("EXPERIENCE");
+  html += data.experience.map(exp =>
+    createComplexItem(
+      exp.title,
+      `${exp.organization}, ${exp.location}`,
+      exp.dates,
+      exp.description
+    )
+  ).join('');
+
+  // Projects
+  html += createSection("PROJECTS");
+  html += createComplexItem(
+    data.project.title,
+    '',
+    data.project.date,
+    data.project.description
+  );
+
+  // Skills
+  html += createSection("TECHNICAL SKILLS");
+  html += `<div class="resume-array">[ ${data.technical_skills.map(s => `"${s}"`).join(', ')} ]</div>`;
+
+  // Coursework
+  html += createSection("COURSEWORK");
+  html += data.coursework.map(c => createListItem(c)).join('');
+
+  // Activities
+  html += createSection("ACTIVITIES");
+  html += data.activities.map(a => createListItem(a)).join('');
+
+  // Honors
+  html += createSection("HONORS");
+  html += data.honors.map(h => createListItem(h)).join('');
+
+  html += `
+    <div class="resume-actions">
+      <button id="downloadBtn">Download PDF</button>
+    </div>
+  </div>`;
+
+  output.innerHTML = html;
 
   // Add event listener for the download button
   document.getElementById("downloadBtn").addEventListener("click", () => {
