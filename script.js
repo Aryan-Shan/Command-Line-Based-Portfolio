@@ -654,30 +654,149 @@ function initGlobe() {
 // Chatbot Logic
 let resumeTextContent = "";
 
-async function getResumeText() {
-  if (resumeTextContent) return resumeTextContent;
+let chatResumeData = null;
 
+async function getChatResumeData() {
+  if (chatResumeData) return chatResumeData;
   try {
-    const configResponse = await fetch("config.json");
-    const config = await configResponse.json();
-    const pdfUrl = config.resumePdfPath;
-
-    const loadingTask = pdfjsLib.getDocument(pdfUrl);
-    const pdf = await loadingTask.promise;
-    let fullText = "";
-
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const textContent = await page.getTextContent();
-      const pageText = textContent.items.map(item => item.str).join(" ");
-      fullText += pageText + " ";
-    }
-    resumeTextContent = fullText;
-    return fullText;
+    const response = await fetch("chatBot/resumeChat.json");
+    chatResumeData = await response.json();
+    return chatResumeData;
   } catch (error) {
-    console.error("Error extracting text from PDF:", error);
-    return "";
+    console.error("Error loading resumeChat.json:", error);
+    return null;
   }
+}
+
+// Kept for backward compatibility if needed, but primary data is now chatResumeData
+async function getResumeData() {
+  return getChatResumeData();
+}
+
+async function getResumeText() {
+  // Deprecated in favor of structured JSON
+  return "";
+}
+
+function generatePassageFromNewJSON(data) {
+  if (!data || !data.resume) return "";
+  const r = data.resume;
+
+  let passage = `My name is ${r.personal_info.name}. `;
+  passage += `I am located in ${r.personal_info.location}. `;
+  passage += `You can contact me at ${r.personal_info.contact.email} or ${r.personal_info.contact.phone}. `;
+  passage += `My LinkedIn is ${r.personal_info.contact.linkedin} and GitHub is ${r.personal_info.contact.github}. `;
+
+  passage += `I have a ${r.education.degree} from ${r.education.institution}. `;
+
+  passage += `My skills include: `;
+  if (r.skills.areas) passage += `Areas: ${r.skills.areas.join(", ")}. `;
+  if (r.skills.languages) passage += `Languages: ${r.skills.languages.join(", ")}. `;
+  if (r.skills.tools) passage += `Tools: ${r.skills.tools.join(", ")}. `;
+  if (r.skills.frameworks) passage += `Frameworks: ${r.skills.frameworks.join(", ")}. `;
+  if (r.skills.libraries) passage += `Libraries: ${r.skills.libraries.join(", ")}. `;
+
+  if (r.experience) {
+    passage += `My experience: `;
+    r.experience.forEach(exp => {
+      passage += `${exp.role} at ${exp.organization} (${exp.duration}). ${exp.description.join(" ")} `;
+    });
+  }
+
+  if (r.projects) {
+    passage += `My projects: `;
+    r.projects.forEach(proj => {
+      passage += `${proj.name} (${proj.date}): ${proj.description.join(" ")} Technologies: ${proj.technologies.join(", ")}. `;
+    });
+  }
+
+  if (r.certificates) {
+    passage += `I have earned the following certificates: `;
+    r.certificates.forEach(cert => {
+      passage += `${cert.title} from ${cert.issuer} (${cert.date}). ${cert.details.join(" ")} `;
+    });
+  }
+
+  if (r.publications) {
+    passage += `My publications include: `;
+    r.publications.forEach(pub => {
+      passage += `${pub.title} in ${pub.journal} (${pub.status}). ${pub.description.join(" ")} `;
+    });
+  }
+
+  if (r.extracurricular) {
+    passage += `My extracurricular activities include: `;
+    r.extracurricular.forEach(extra => {
+      passage += `${extra.role} at ${extra.organization} (${extra.duration}). ${extra.description.join(" ")} `;
+    });
+  }
+
+  if (r.relevant_coursework) {
+    passage += `I have studied the following coursework: ${r.relevant_coursework.join(", ")}. `;
+  }
+
+  return passage;
+}
+
+function keywordFallback(question, data) {
+  const q = question.toLowerCase().trim();
+  if (!data || !data.resume) return null;
+  const r = data.resume;
+
+  console.log("Fallback checking for:", q);
+
+  if (q === "hi" || q === "hello" || q === "hey") {
+    return `Hello! I am an AI assistant for ${r.personal_info.name}. Ask me about skills, projects, or experience.`;
+  }
+
+  if (q.includes("help") || q.includes("command")) {
+    return `Try asking: "What are your skills?", "Tell me about your projects", "Contact info", or "Education".`;
+  }
+
+  if (q.includes("email") || q.includes("contact") || q.includes("phone") || q.includes("reach")) {
+    return `Email: ${r.personal_info.contact.email}, Phone: ${r.personal_info.contact.phone}. LinkedIn: ${r.personal_info.contact.linkedin}`;
+  }
+
+  if (q.includes("skill") || q.includes("technology") || q.includes("stack") || q.includes("language")) {
+    return `Languages: ${r.skills.languages.join(", ")}. Frameworks: ${r.skills.frameworks.join(", ")}.`;
+  }
+
+  if (q.includes("education") || q.includes("college") || q.includes("university") || q.includes("degree")) {
+    return `${r.education.degree} at ${r.education.institution}.`;
+  }
+
+  if (q.includes("project")) {
+    return r.projects.map(p => `${p.name}: ${p.description[0]}`).join("\n");
+  }
+
+  if (q.includes("experience") || q.includes("work") || q.includes("job") || q.includes("internship")) {
+    return r.experience.map(e => `${e.role} at ${e.organization} (${e.duration})`).join("\n");
+  }
+
+  if (q.includes("name") || q.includes("who are you") || q.includes("who is aryan")) {
+    return `I am ${r.personal_info.name}.`;
+  }
+  if (q.includes("location") || q.includes("live") || q.includes("where") || q.includes("from")) {
+    return `I am located in ${r.personal_info.location}.`;
+  }
+
+  if (q.includes("certificate") || q.includes("certification")) {
+    return r.certificates.map(c => `${c.title} from ${c.issuer}`).join("\n");
+  }
+
+  if (q.includes("publication") || q.includes("paper") || q.includes("research")) {
+    return r.publications.map(p => `${p.title} (${p.status})`).join("\n");
+  }
+
+  if (q.includes("course") || q.includes("subject")) {
+    return `I have studied: ${r.relevant_coursework.join(", ")}.`;
+  }
+
+  if (q.includes("extra") || q.includes("club") || q.includes("activity")) {
+    return r.extracurricular.map(e => `${e.role} at ${e.organization}`).join("\n");
+  }
+
+  return null;
 }
 
 function showChatInterface() {
@@ -744,48 +863,43 @@ function addMessageToChat(text, className) {
 
 async function getAIResponse(question) {
   try {
-    const configResponse = await fetch("config.json");
-    const config = await configResponse.json();
-    const apiKey = config.openRouterApiKey;
-    const resumeText = await getResumeText();
+    const data = await getChatResumeData();
+    if (!data) return "Error loading resume data.";
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": window.location.href, // Required by OpenRouter
-        "X-Title": "Aryan Shandilya Portfolio" // Optional
-      },
-      body: JSON.stringify({
-        "model": "openai/gpt-oss-20b:free", // Using a free model as per example, or better one if available
-        "messages": [
-          {
-            "role": "system",
-            "content": `You are an AI assistant for Aryan Shandilya's portfolio. 
-                        Here is the content of his resume: 
-                        ${resumeText}
-                        
-                        Answer questions based ONLY on this information. Be concise, professional, and friendly. 
-                        If the answer is not in the resume, say you don't know but suggest checking the other sections of the portfolio.`
-          },
-          {
-            "role": "user",
-            "content": question
-          }
-        ]
-      })
-    });
+    // 1. Try TensorFlow.js QnA model FIRST
+    console.log("Generating passage from JSON...");
+    const resumePassage = generatePassageFromNewJSON(data);
 
-    const data = await response.json();
-    if (data.choices && data.choices.length > 0) {
-      return data.choices[0].message.content;
-    } else {
-      return "I couldn't generate a response. Please try again.";
+    if (!resumePassage) {
+      return "I'm having trouble reading the resume data right now.";
     }
 
+    // Load the model.
+    console.log("Loading QnA model...");
+    const model = await qna.load();
+
+    // Finding the answers
+    console.log("Finding answers for:", question);
+    const answers = await model.findAnswers(question, resumePassage);
+    console.log("QnA Answers:", answers); // Debugging
+
+    if (answers && answers.length > 0) {
+      // Return the top answer
+      return answers[0].text;
+    }
+
+    // 2. If model fails, try Keyword Fallback
+    console.log("Model failed, trying Keyword Fallback...");
+    const fallbackAnswer = keywordFallback(question, data);
+    if (fallbackAnswer) {
+      console.log("Used Keyword Fallback");
+      return fallbackAnswer;
+    }
+
+    return "I couldn't find a specific answer. Try asking about 'skills', 'education', 'experience', or 'projects'.";
+
   } catch (error) {
-    console.error("Error calling OpenRouter:", error);
-    throw error;
+    console.error("Error using TensorFlow.js QnA:", error);
+    return "I'm having trouble processing that request right now.";
   }
 }

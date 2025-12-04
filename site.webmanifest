@@ -1,0 +1,14 @@
+{
+    "name": "Aryan Shandilya Portfolio",
+    "short_name": "Aryan",
+    "icons": [
+        {
+            "src": "images/favicon/icon.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

@@ -1,0 +1,170 @@
+{
+    "resume": {
+        "personal_info": {
+            "name": "Aryan Shandilya",
+            "location": "Bhopal, Madhya Pradesh",
+            "contact": {
+                "phone": "+91-915-5636-600",
+                "email": "aryanspl2004@gmail.com",
+                "linkedin": "linkedin.com/in/aryan-shandilya-sr/",
+                "github": "github.com/Aryan-Shan"
+            }
+        },
+        "education": {
+            "institution": "Vellore Institute Of Technology, Bhopal",
+            "degree": "Bachelor of Technology- Computer Science with specialization in AIML"
+        },
+        "skills": {
+            "areas": [
+                "Machine Learning",
+                "Computer Vision",
+                "Web Development",
+                "Robotics"
+            ],
+            "languages": [
+                "Python",
+                "Java",
+                "C++",
+                "HTML/CSS",
+                "JavaScript",
+                "SQL"
+            ],
+            "tools": [
+                "Docker",
+                "GIT",
+                "MySQL",
+                "MATLAB"
+            ],
+            "platforms": [
+                "Linux",
+                "Windows",
+                "Arduino",
+                "Raspberry",
+                "AWS",
+                "GCP"
+            ],
+            "frameworks": [
+                "Scikit",
+                "TensorFlow",
+                "Django",
+                "webRTC"
+            ],
+            "libraries": [
+                "Open CV",
+                "TKinter",
+                "Electron JS"
+            ],
+            "soft_skills": [
+                "Writing",
+                "Public Speaking",
+                "Team Management"
+            ]
+        },
+        "relevant_coursework": [
+            "Data Structures",
+            "Operating System",
+            "Mathematics for AI",
+            "Database Management",
+            "Artificial Intelligence",
+            "Internet Technology",
+            "Systems Programming",
+            "Computer Architecture"
+        ],
+        "experience": [
+            {
+                "organization": "Girlscript Summer of Code",
+                "role": "Open Source Contributor",
+                "duration": "March 2024 – December 2024",
+                "description": [
+                    "Selected as an open-source contributor for the GirlScript Summer of code 2024",
+                    "Contributed in various repositories working with technologies like React, Django, Node.js"
+                ]
+            }
+        ],
+        "certificates": [
+            {
+                "title": "Applied Machine Learning in Python",
+                "issuer": "Coursera University Of Michigan",
+                "date": "November 2025",
+                "details": [
+                    "Comprehensive training in machine learning algorithms and neural networks",
+                    "Hands-on projects using Python, TensorFlow, and scikit-learn"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "name": "Viloir Chat",
+                "technologies": [
+                    "webRTC",
+                    "GCP",
+                    "Firebase Realtime Database"
+                ],
+                "date": "October 2024",
+                "description": [
+                    "Developed a full stack platform for connecting college students over video call",
+                    "Implemented user authentication and sign up using firebase",
+                    "Used webRTC for peer-to-peer video call",
+                    "Created queue system for handling random connections between available peers",
+                    "800+ registrations in the first week",
+                    "Peak online engagement of 100 users"
+                ]
+            },
+            {
+                "name": "Robotic-Prosthetic-Hand",
+                "technologies": [
+                    "Java",
+                    "Embedded C",
+                    "Arduino",
+                    "Python",
+                    "OpenCV"
+                ],
+                "date": "January 2025",
+                "description": [
+                    "Built a working robotic prosthetic hand",
+                    "Processed user input in form of hand gestures through OpenCV to control finger movement",
+                    "Successful POC for building robust and portable artificial limbs"
+                ]
+            },
+            {
+                "name": "V12 JavaScript Editor",
+                "technologies": [
+                    "Browser tools",
+                    "Codemirror",
+                    "Flowchart.Js",
+                    "Mermaid.Js"
+                ],
+                "date": "May 2025",
+                "description": [
+                    "Built an in-browser JavaScript Editor with real-time flowchart generation",
+                    "Used syntax trees with Mermaid.Js to dynamically generate flowchart for user code",
+                    "Implemented features such as theme selection, syntax highlighting and error detection"
+                ]
+            }
+        ],
+        "publications": [
+            {
+                "title": "Classification of different Plant Species using DL and ML",
+                "journal": "The Journal Of Supercomputing",
+                "status": "Under Review",
+                "description": [
+                    "Paper highlights the use of ensemble learning for classifying different plant species",
+                    "Highlights the use of classification models along with robotic vehicle for species identification"
+                ]
+            }
+        ],
+        "extracurricular": [
+            {
+                "organization": "Electric Vehicle Club",
+                "role": "Event Management Club",
+                "duration": "Fall 2024 – Present",
+                "location": "Vellore Institute Of Technology, Bhopal",
+                "description": [
+                    "Serving member of the Electric Vehicle Club as the event management head",
+                    "Conducted successful workshops and informative tech events",
+                    "Record of 100+ registrations"
+                ]
+            }
+        ]
+    }
+}

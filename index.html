@@ -33,10 +33,15 @@ Open Source Project:- Copyright Free (Except Media) -->
     <link rel="stylesheet" href="themes/dark-mode.css"> <!--Style Headers-->
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--JavaScript Chart Header-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Load TensorFlow.js. This is required to use the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
 </head>
 
 <body>
@@ -56,7 +61,7 @@ Open Source Project:- Copyright Free (Except Media) -->
             <div id="resume-container" class="hidden"></div>
         </div>
     </main>
-    <button id="darkmode" onclick="toggleTheme()"></button>
+    <button id="darkmode"></button>
     <div class="like-container">
         <div class="heart-icon">
 
