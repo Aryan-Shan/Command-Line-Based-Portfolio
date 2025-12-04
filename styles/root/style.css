@@ -10,6 +10,7 @@ button {
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Courier New", Courier, monospace;
   line-height: 1.6;
@@ -71,15 +72,20 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Allow vertical scrolling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  max-height: auto; /* Adjust as needed for visibility */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  max-height: auto;
+  /* Adjust as needed for visibility */
 }
 
 #command-line-output {
   flex: 1;
-  overflow-y: auto; /* Allow vertical scrolling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
   word-wrap: break-word;
   margin-bottom: 1rem;
 }
@@ -135,8 +141,9 @@ footer {
   font-family: "Courier New", Courier, monospace;
   animation: fadeIn 0.5s;
 }
+
 .ascii-container,
-.ascii-container > * {
+.ascii-container>* {
   background: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 255, 229));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -150,10 +157,12 @@ pre {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 #titleCmd {
   color: rgb(255, 255, 255);
   font-weight: bold;
@@ -173,13 +182,17 @@ pre {
   max-width: 100%;
   text-align: center;
 }
+
 .about img {
-  max-width: 200px; /* Adjust this value to your desired width */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 200px;
+  /* Adjust this value to your desired width */
+  height: auto;
+  /* Maintain aspect ratio */
   border-radius: 30px;
   margin-bottom: 2rem;
   border: 1.5px solid white;
 }
+
 .project img,
 .contact img {
   border: 2px solid rgb(255, 255, 255);
@@ -224,6 +237,7 @@ pre {
   border: 1.5px solid rgba(255, 251, 0, 1);
   color: rgba(255, 251, 0, 1);
 }
+
 .project-buttons {
   display: flex;
   justify-content: space-around;
@@ -246,6 +260,7 @@ pre {
   border: 1.5px solid yellow;
   color: yellow;
 }
+
 ::-webkit-scrollbar {
   width: 4px;
   height: 15px;
@@ -273,6 +288,7 @@ pre {
 .contact-details {
   text-align: center;
 }
+
 .contact-details h2 {
   color: yellow;
 }
@@ -287,8 +303,10 @@ pre {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   max-width: 100%;
-  width: 150px; /* Sets the image width to 50px */
-  height: auto; /* Maintains aspect ratio */
+  width: 150px;
+  /* Sets the image width to 50px */
+  height: auto;
+  /* Maintains aspect ratio */
 }
 
 /* like button styling */
@@ -315,30 +333,6 @@ pre {
 
 #likeCounter {
   margin-top: 5px;
-  font-size: 14px;
-  color: #000;
-  display: none;
-}
-
-* {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by most browsers */
-}
-
-/* Resume Section Styling */
-.resume-container-styled {
-  font-family: "Courier New", Courier, monospace;
-  padding: 1rem;
-  width: 100%;
-}
-
-.resume-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px dashed #333;
   padding-bottom: 1rem;
 }
 
@@ -363,7 +357,8 @@ pre {
   padding-right: 1rem;
 }
 
-.resume-item, .resume-list-item {
+.resume-item,
+.resume-list-item {
   margin-bottom: 0.3rem;
   padding-left: 1rem;
 }
@@ -383,7 +378,8 @@ pre {
 }
 
 .block-title {
-  color: #0ff; /* Cyan */
+  color: #0ff;
+  /* Cyan */
   font-weight: bold;
 }
 
@@ -394,7 +390,8 @@ pre {
 }
 
 .block-date {
-  color: #ff00ff; /* Magenta */
+  color: #ff00ff;
+  /* Magenta */
   font-size: 0.8rem;
   margin-left: auto;
 }
@@ -406,7 +403,8 @@ pre {
 }
 
 .key {
-  color: #0ff; /* Cyan */
+  color: #0ff;
+  /* Cyan */
   font-weight: bold;
 }
 
@@ -437,6 +435,43 @@ pre {
   padding-top: 1rem;
 }
 
+/* Contact Section Styling */
+.contact-container-styled {
+  font-family: "Courier New", Courier, monospace;
+  padding: 1rem;
+  width: 100%;
+}
+
+.contact-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed #333;
+  padding-bottom: 1rem;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+#globe-container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle, rgba(0, 20, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  margin-right: 2rem;
+}
+
 #downloadBtn {
   padding: 0.5rem 1rem;
   background-color: black;
@@ -464,39 +499,17 @@ pre {
 }
 
 #social-media-links a {
-  transition: transform 0.3s;
+  transition: transform 0.3s, filter 0.3s;
 }
 
 #social-media-links a:hover {
-  transform: scale(1.1); /* Slightly increase size on hover */
+  transform: scale(1.1);
 }
 
 #social-media-links img {
-  width: 24px; /* Adjust size as needed */
+  width: 24px;
   height: 24px;
-  margin: 5px; /* Adds some spacing around icons */
-}
-
-/* Social Media Icons Styling */
-#social-media-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-#social-media-links a {
-  transition: transform 0.3s, filter 0.3s; /* Add transition for filter */
-}
-
-#social-media-links a:hover {
-  transform: scale(1.1); /* Slightly increase size on hover */
-}
-
-#social-media-links img {
-  width: 24px; /* Adjust size as needed */
-  height: 24px;
-  margin: 5px; /* Adds some spacing around icons */
+  margin: 5px;
 }
 
 /* Specific icon colors */
@@ -505,7 +518,7 @@ pre {
 }
 
 #social-media-links .instagram-icon:hover img {
-  filter: invert(43%) sepia(66%) saturate(3502%) hue-rotate(316deg) brightness(101%) contrast(99%); /* Pink */
+  filter: invert(43%) sepia(66%) saturate(3502%) hue-rotate(316deg) brightness(101%) contrast(99%);
 }
 
 #social-media-links .github-icon img {
@@ -513,7 +526,7 @@ pre {
 }
 
 #social-media-links .github-icon:hover img {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(0%) contrast(100%); /* Grey */
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(0%) contrast(100%);
 }
 
 #social-media-links .linkedin-icon img {
@@ -524,12 +537,11 @@ pre {
   filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
 }
 
-
 .map-container {
   border-radius: 30px;
   margin-top: 2rem;
-  width: 100%;
-  height: 400px; /* Adjust height as needed */
+  width: 93%;
+  height: 500px;
   position: relative;
   overflow: hidden;
 }
@@ -544,7 +556,6 @@ pre {
   width: 100%;
   height: 100%;
 }
-
 
 /* General custom cursor */
 body {
@@ -565,4 +576,3 @@ a {
 button {
   cursor: url('../../images/assets/cursor.png'), pointer;
 }
-

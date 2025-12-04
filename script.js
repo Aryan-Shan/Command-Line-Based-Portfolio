@@ -150,16 +150,33 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case "show_contact":
         output.innerHTML = `
-        <div class="contact">
-            <h2>Contact Me</h2>
-            <p>Name: Aryan Shandilya</p>
-            <p>Phone: 9155636600</p>
-            <p>Email: aryanspl2004@gmail.com</p>
+        <div class="contact-container-styled">
+            <div class="contact-header">
+                <div class="section-title">> CONTACT_ME</div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-details">
+                    <div class="resume-item">
+                        <span class="key">Name:</span> <span class="value">Aryan Shandilya</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="key">Phone:</span> <span class="value">9155636600</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="key">Email:</span> <span class="value">aryanspl2004@gmail.com</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="key">Location:</span> <span class="value">India</span>
+                    </div>
+                </div>
+                <div id="globe-container"></div>
+            </div>
             <div class="map-container">
                 <iframe class="map" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d895.590854908758!2d86.6066867707581!3d26.119691054501807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ee42476ea27161%3A0x5ce605fde284c09!2sChaiti%20Durga%20Mandir!5e0!3m2!1sen!2sin!4v1718263759160!5m2!1sen!2sin"></iframe>
             </div>
         </div>
     `;
+        setTimeout(initGlobe, 100); // Slight delay to ensure container exists
         break;
       case "show_about":
         output.innerHTML = `
@@ -329,6 +346,7 @@ function fetchResume() {
     });
 }
 
+// Function to display the resume
 // Function to display the resume
 // Function to display the resume
 function displayResume(data) {
@@ -536,12 +554,84 @@ function generatePDF(data) {
   doc.save("resume.pdf");
 }
 
-// Fetch and display the resume
-function fetchResume() {
-  fetch("json_files/resume.json")
-    .then((response) => response.json())
-    .then((data) => displayResume(data))
-    .catch((error) => {
-      console.error("Error loading resume:", error);
-    });
+// Function to initialize 3D Globe
+function initGlobe() {
+  const container = document.getElementById("globe-container");
+  if (!container) return;
+
+  // Clear previous canvas if any
+  container.innerHTML = "";
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  // Create Globe (Wireframe Sphere)
+  const geometry = new THREE.SphereGeometry(5, 32, 32);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x00ff00, // Neon Green
+    wireframe: true,
+    transparent: true,
+    opacity: 0.8,
+  });
+  const globe = new THREE.Mesh(geometry, material);
+  scene.add(globe);
+
+  // Add some "stars" or particles around
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particlesCount = 500;
+  const posArray = new Float32Array(particlesCount * 3);
+
+  for (let i = 0; i < particlesCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 20;
+  }
+
+  particlesGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(posArray, 3)
+  );
+  const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.05,
+    color: 0x00ffff, // Cyan
+  });
+  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particlesMesh);
+
+  camera.position.z = 10;
+
+  // Orbit Controls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.enableZoom = false;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 2.0;
+
+  // Animation Loop
+  function animate() {
+    requestAnimationFrame(animate);
+    globe.rotation.y += 0.002;
+    particlesMesh.rotation.y -= 0.001;
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Handle Resize
+  window.addEventListener("resize", () => {
+    if (container) {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    }
+  });
 }

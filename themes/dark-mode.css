@@ -459,6 +459,185 @@ body.dark .key {
   /* Dark Blue */
 }
 
+body.dark .project img,
+body.dark .contact img {
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* Black box shadow with 50% opacity */
+}
+
+body.dark .ascii-container {
+  background: #000;
+}
+
+body.dark .ascii-container,
+body.dark .ascii-container>* {
+  background: linear-gradient(to right, rgb(129, 4, 255), rgb(255, 1, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+body.dark .project-buttons a {
+  background-color: transparent;
+  border: 1.5px solid rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
+}
+
+body.dark .project-buttons a:hover {
+  border: 1.5px solid rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+}
+
+
+body.dark .contact-details {
+  text-align: center;
+}
+
+body.dark .contact-details h2 {
+  color: rgb(34, 0, 255);
+}
+
+
+
+/* heart icon styles */
+body.dark .heart-icon {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+  fill: #fff;
+  /* Default fill for heart icon in dark mode */
+}
+
+body.dark .heart-icon.liked .heart {
+  fill: rgb(255, 0, 43);
+  /* Fill color when liked in dark mode */
+}
+
+body.dark #likeCounter {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+  /* Text color for like counter in dark mode */
+}
+
+body.dark .about img {
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* Black box shadow with 50% opacity */
+}
+
+
+
+body.dark .resume {
+  color: #010101;
+}
+
+body.dark .resume h2,
+body.dark .resume h3 {
+  color: #5c00fc;
+}
+
+
+body.dark #downloadBtn {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 0, 0, 1);
+  color: rgba(255, 0, 0, 1);
+  transition: background-color 0.3s ease;
+}
+
+body.dark #downloadBtn:hover {
+  background-color: rgba(0, 255, 30, 0.2);
+  border: 1.5px solid rgba(0, 255, 30, 1);
+  color: rgba(0, 255, 30, 1);
+}
+
+
+/* Specific SVG icon colors */
+body.dark #social-media-links .instagram-icon img {
+  filter: invert(100%);
+  /* Invert the colors to make the Instagram icon white in dark mode */
+}
+
+body.dark #social-media-links .github-icon img {
+  filter: invert(100%);
+  /* Invert the colors to make the GitHub icon white in dark mode */
+}
+
+body.dark #social-media-links .linkedin-icon img {
+  filter: invert(100%);
+  /* Invert the colors to make the LinkedIn icon white in dark mode */
+}
+
+/* Specific SVG icon hover effects */
+body.dark #social-media-links .instagram-icon img:hover {
+  filter: invert(43%) sepia(66%) saturate(3502%) hue-rotate(316deg) brightness(101%) contrast(99%);
+  /* Pink */
+}
+
+body.dark #social-media-links .github-icon img:hover {
+  filter: invert(75%) sepia(0%) saturate(0%) hue-rotate(215deg) brightness(85%) contrast(79%);
+}
+
+body.dark #social-media-links .linkedin-icon img:hover {
+  filter: invert(75%) sepia(10%) saturate(2543%) hue-rotate(185deg) brightness(85%) contrast(87%);
+}
+
+
+.map-container {
+  border: 2px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  /* Black box shadow with 50% opacity */
+}
+
+/* Resume Overrides for Dark Mode (Light Terminal) */
+body.dark .resume-container-styled {
+  color: #000;
+}
+
+body.dark .resume-header {
+  border-bottom: 1px dashed #000;
+}
+
+body.dark .name-title {
+  color: #00008b;
+  /* Dark Blue */
+  text-shadow: none;
+}
+
+body.dark .section-title {
+  color: #d35400;
+  /* Dark Orange */
+  border-bottom: 1px solid #000;
+}
+
+body.dark .resume-block {
+  border-left: 2px solid #000;
+}
+
+body.dark .block-title {
+  color: #4b0082;
+  /* Indigo */
+}
+
+body.dark .block-subtitle {
+  color: #555;
+}
+
+body.dark .block-date {
+  color: #8b008b;
+  /* Dark Magenta */
+}
+
+body.dark .block-description {
+  color: #333;
+}
+
+body.dark .key {
+  color: #00008b;
+  /* Dark Blue */
+}
+
 body.dark .bullet {
   color: #000;
 }
@@ -473,4 +652,15 @@ body.dark .resume-text {
 
 body.dark .resume-actions {
   border-top: 1px dashed #000;
+}
+
+/* Contact Overrides for Dark Mode */
+body.dark .contact-header {
+  border-bottom: 1px dashed #000;
+}
+
+body.dark #globe-container {
+  border: 1px solid #000;
+  background: radial-gradient(circle, rgba(200, 200, 255, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
