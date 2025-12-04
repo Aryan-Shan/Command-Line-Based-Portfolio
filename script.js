@@ -193,6 +193,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide the CMD_dir button when showing the hint section
         backButton.style.display = "none";
         break;
+      case "ask_aryan":
+        showChatInterface();
+        break;
       default:
         output.innerHTML = `<p>Unknown command: ${command}. Type 'hint' for a list of commands.</p>`;
         break;
@@ -274,6 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ${createHintLink("show_skills")}
             ${createHintLink("show_contact")}
             ${createHintLink("show_about")}
+            ${createHintLink("ask_aryan")}
         `;
   }
 
@@ -454,7 +458,18 @@ function displayResume(data) {
 
   // Add event listener for the download button
   document.getElementById("downloadBtn").addEventListener("click", () => {
-    generatePDF(data);
+    // Download the existing PDF instead of generating a new one
+    fetch("config.json")
+      .then(response => response.json())
+      .then(config => {
+        const link = document.createElement('a');
+        link.href = config.resumePdfPath;
+        link.download = 'Aryan_Shandilya_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      })
+      .catch(err => console.error("Error loading config for download:", err));
   });
 }
 
@@ -634,4 +649,143 @@ function initGlobe() {
       renderer.setSize(container.clientWidth, container.clientHeight);
     }
   });
+}
+
+// Chatbot Logic
+let resumeTextContent = "";
+
+async function getResumeText() {
+  if (resumeTextContent) return resumeTextContent;
+
+  try {
+    const configResponse = await fetch("config.json");
+    const config = await configResponse.json();
+    const pdfUrl = config.resumePdfPath;
+
+    const loadingTask = pdfjsLib.getDocument(pdfUrl);
+    const pdf = await loadingTask.promise;
+    let fullText = "";
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items.map(item => item.str).join(" ");
+      fullText += pageText + " ";
+    }
+    resumeTextContent = fullText;
+    return fullText;
+  } catch (error) {
+    console.error("Error extracting text from PDF:", error);
+    return "";
+  }
+}
+
+function showChatInterface() {
+  const output = document.getElementById("command-line-output");
+  output.innerHTML = `
+        <div class="chat-container">
+            <div class="chat-header">> ASK_ARYAN_AI</div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai-message">Hello! I'm Aryan's AI assistant. Ask me anything about his resume, skills, or experience.</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your question here..." autocomplete="off">
+                <button id="send-chat-btn">Send</button>
+            </div>
+        </div>
+    `;
+
+  const chatInput = document.getElementById("chat-input");
+  const sendBtn = document.getElementById("send-chat-btn");
+
+  chatInput.focus();
+
+  const handleSend = async () => {
+    const question = chatInput.value.trim();
+    if (!question) return;
+
+    addMessageToChat(question, "user-message");
+    chatInput.value = "";
+
+    // Show loading state
+    const loadingId = addMessageToChat("Thinking...", "ai-message");
+
+    try {
+      const answer = await getAIResponse(question);
+      // Remove loading message and add actual response
+      const messagesContainer = document.getElementById("chat-messages");
+      messagesContainer.removeChild(messagesContainer.lastElementChild);
+      addMessageToChat(answer, "ai-message");
+    } catch (error) {
+      console.error("AI Error:", error);
+      const messagesContainer = document.getElementById("chat-messages");
+      messagesContainer.removeChild(messagesContainer.lastElementChild);
+      addMessageToChat("Sorry, I encountered an error while processing your request.", "ai-message");
+    }
+  };
+
+  sendBtn.addEventListener("click", handleSend);
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  });
+}
+
+function addMessageToChat(text, className) {
+  const messagesContainer = document.getElementById("chat-messages");
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("message", className);
+  messageDiv.textContent = text;
+  messagesContainer.appendChild(messageDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  return messageDiv;
+}
+
+async function getAIResponse(question) {
+  try {
+    const configResponse = await fetch("config.json");
+    const config = await configResponse.json();
+    const apiKey = config.openRouterApiKey;
+    const resumeText = await getResumeText();
+
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": window.location.href, // Required by OpenRouter
+        "X-Title": "Aryan Shandilya Portfolio" // Optional
+      },
+      body: JSON.stringify({
+        "model": "openai/gpt-oss-20b:free", // Using a free model as per example, or better one if available
+        "messages": [
+          {
+            "role": "system",
+            "content": `You are an AI assistant for Aryan Shandilya's portfolio. 
+                        Here is the content of his resume: 
+                        ${resumeText}
+                        
+                        Answer questions based ONLY on this information. Be concise, professional, and friendly. 
+                        If the answer is not in the resume, say you don't know but suggest checking the other sections of the portfolio.`
+          },
+          {
+            "role": "user",
+            "content": question
+          }
+        ]
+      })
+    });
+
+    const data = await response.json();
+    if (data.choices && data.choices.length > 0) {
+      return data.choices[0].message.content;
+    } else {
+      return "I couldn't generate a response. Please try again.";
+    }
+
+  } catch (error) {
+    console.error("Error calling OpenRouter:", error);
+    throw error;
+  }
 }
